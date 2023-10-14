@@ -119,6 +119,7 @@ struct Home: View {
 struct Translate: View{
     @State var text = ""
     @State var torchIsOn = false
+    @State var buttonTapped = false
     let flashDuration = 0.5
     
     var body: some View {
@@ -135,13 +136,14 @@ struct Translate: View{
                 UserDefaults.standard.set(text, forKey: "textToTranslate")
                 text = text.morseCode()
                 flashLight()
+                buttonTapped = true
             }, label: {
                 Text("Translate")
                     .frame(width: 300, height: 50)
                     .background(Color.blue)
                     .foregroundColor(.white)
                     .cornerRadius(10)
-            })
+            }).disabled(buttonTapped)
         }
     }
     
