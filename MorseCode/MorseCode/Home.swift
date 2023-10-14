@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct AppContentView: View {
     @State var videoSelected = false
@@ -87,6 +88,8 @@ struct Home: View {
 
 struct Translate: View{
     @State var text = ""
+    @State var torchIsOn = false
+    let flashDuration = 0.2
     
     var body: some View {
         VStack {
@@ -101,6 +104,7 @@ struct Translate: View{
                 // Save the entered text for later use
                 UserDefaults.standard.set(text, forKey: "textToTranslate")
                 text = text.morseCode()
+                flashLight()
             }, label: {
                 Text("Translate")
                     .frame(width: 300, height: 50)
@@ -108,6 +112,28 @@ struct Translate: View{
                     .foregroundColor(.white)
                     .cornerRadius(10)
             })
+        }
+    }
+    
+    func flashLight() {
+        let device = AVCaptureDevice.default(for: AVMediaType.video)
+        if (device != nil) {
+            do {
+                try device!.lockForConfiguration()
+                if torchIsOn {
+                    device!.torchMode = AVCaptureDevice.TorchMode.off
+                    torchIsOn = false
+                } else {
+                    device!.torchMode = AVCaptureDevice.TorchMode.on
+                    torchIsOn = true
+                }
+                device!.unlockForConfiguration()
+            } catch {
+                print(error)
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + flashDuration) {
+                self.flashLight()
+            }
         }
     }
 }
@@ -180,4 +206,7 @@ struct Display: View {
 
 //#Preview {
 //    Home()
+//}
+
+()
 //}
