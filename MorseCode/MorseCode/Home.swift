@@ -68,8 +68,11 @@ struct Home: View {
             Button(action: {
                 translate = true
             }, label: {
-                Text("Create Morse Code")
+                Text("Translate Text")
                     .frame(width: 300, height: 50)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
             })
     
         }
@@ -91,11 +94,67 @@ struct Translate: View{
             Button(action: {
                 // Save the entered text for later use
                 UserDefaults.standard.set(text, forKey: "textToTranslate")
+                text = text.morseCode()
             }, label: {
-                Text("Translate Text")
+                Text("Translate")
                     .frame(width: 300, height: 50)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
             })
         }
+    }
+}
+
+extension String {
+    func morseCode() -> String {
+        let morseCodeDictionary = [
+            "a": ".-",
+            "b": "-...",
+            "c": "-.-.",
+            "d": "-..",
+            "e": ".",
+            "f": "..-.",
+            "g": "--.",
+            "h": "....",
+            "i": "..",
+            "j": ".---",
+            "k": "-.-",
+            "l": ".-..",
+            "m": "--",
+            "n": "-.",
+            "o": "---",
+            "p": ".--.",
+            "q": "--.-",
+            "r": ".-.",
+            "s": "...",
+            "t": "-",
+            "u": "..-",
+            "v": "...-",
+            "w": ".--",
+            "x": "-..-",
+            "y": "-.--",
+            "z": "--..",
+            "1": ".----",
+            "2": "..---",
+            "3": "...--",
+            "4": "....-",
+            "5": ".....",
+            "6": "-....",
+            "7": "--...",
+            "8": "---..",
+            "9": "----.",
+            "0": "-----",
+            " ": "/"
+        ]
+        
+        var morseCode = ""
+        for character in self.lowercased() {
+            if let code = morseCodeDictionary[String(character)] {
+                morseCode += code + " "
+            }
+        }
+        return morseCode
     }
 }
 
