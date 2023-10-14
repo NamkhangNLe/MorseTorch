@@ -10,7 +10,16 @@ import SwiftUI
 struct Home: View {
     var body: some View {
         VStack {
-            Text("Hello, World!")
+            Rectangle()
+                .frame(width:300, height: 500)
+            Rectangle()
+                .frame(width:300, height: 50)
+            HStack {
+                Circle()
+                    .frame(width:100, height: 100)
+                Circle()
+                    .frame(width:100, height: 100)
+            }
         }
     }
 }
