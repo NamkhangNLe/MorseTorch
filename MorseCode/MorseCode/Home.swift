@@ -124,153 +124,175 @@ struct Translate: View{
     let flashDuration = 0.5
     
     var body: some View {
-        VStack {
-            Image("logo")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 48, height: 48)
-            TextField("Enter text to translate", text: $text)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-            Button(action: {
-                // Save the entered text for later use
-                UserDefaults.standard.set(text, forKey: "textToTranslate")
-                text = text.morseCode()
-                flashLight()
-                buttonTapped = true
-            }, label: {
-                Text("Translate")
-                    .frame(width: 300, height: 50)
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-            }).disabled(buttonTapped)
-            Button {
-                buttonTapped = false
-                text = ""
-            } label: {
-                Text("Reset")
-                    .frame(width: 300, height: 50)
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-            }
-            Button {
-                goBack.toggle()
-            } label: {
-                Text("Back")
-                    .frame(width: 100, height: 50)
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-            }.sheet(isPresented: $goBack){
-                AppContentView().scaledToFill()
-            }
-
-        }
-    }
-    
-    func flashLight() {
-        let device = AVCaptureDevice.default(for: AVMediaType.video)
-        if (device != nil) {
-            do {
-                try device!.lockForConfiguration()
-                if torchIsOn {
-                    device!.torchMode = AVCaptureDevice.TorchMode.off
-                    torchIsOn = false
-                } else {
-                    device!.torchMode = AVCaptureDevice.TorchMode.on
-                    torchIsOn = true
+        GeometryReader { geo in
+            ZStack {
+                
+                Image("Image 3")
+                    .resizable()
+                    .scaledToFill()
+                    .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                    .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
+                    .opacity(1.0)
+                VStack {
+                    Image("logo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 48, height: 48)
+                    TextField("Enter text to translate", text: $text)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding()
+                    Button(action: {
+                        // Save the entered text for later use
+                        UserDefaults.standard.set(text, forKey: "textToTranslate")
+                        text = text.morseCode()
+                        flashLight()
+                        buttonTapped = true
+                    }, label: {
+                        Text("Translate")
+                            .frame(width: 300, height: 50)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }).disabled(buttonTapped)
+                    Button {
+                        buttonTapped = false
+                        text = ""
+                    } label: {
+                        Text("Reset")
+                            .frame(width: 300, height: 50)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
+                    Button {
+                        goBack.toggle()
+                    } label: {
+                        Text("Back")
+                            .frame(width: 100, height: 50)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }.sheet(isPresented: $goBack){
+                        AppContentView().scaledToFit()
+                    }
+                    
                 }
-                device!.unlockForConfiguration()
-            } catch {
-                print(error)
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + flashDuration) {
-                self.flashLight()
             }
         }
-    }
-}
-
-extension String {
-    func morseCode() -> String {
-        let morseCodeDictionary = [
-            "a": ".-",
-            "b": "-...",
-            "c": "-.-.",
-            "d": "-..",
-            "e": ".",
-            "f": "..-.",
-            "g": "--.",
-            "h": "....",
-            "i": "..",
-            "j": ".---",
-            "k": "-.-",
-            "l": ".-..",
-            "m": "--",
-            "n": "-.",
-            "o": "---",
-            "p": ".--.",
-            "q": "--.-",
-            "r": ".-.",
-            "s": "...",
-            "t": "-",
-            "u": "..-",
-            "v": "...-",
-            "w": ".--",
-            "x": "-..-",
-            "y": "-.--",
-            "z": "--..",
-            "1": ".----",
-            "2": "..---",
-            "3": "...--",
-            "4": "....-",
-            "5": ".....",
-            "6": "-....",
-            "7": "--...",
-            "8": "---..",
-            "9": "----.",
-            "0": "-----",
-            " ": "/"
-        ]
         
-        var morseCode = ""
-        for character in self.lowercased() {
-            if let code = morseCodeDictionary[String(character)] {
-                morseCode += code + " "
+        func flashLight() {
+            let device = AVCaptureDevice.default(for: AVMediaType.video)
+            if (device != nil) {
+                do {
+                    try device!.lockForConfiguration()
+                    if torchIsOn {
+                        device!.torchMode = AVCaptureDevice.TorchMode.off
+                        torchIsOn = false
+                    } else {
+                        device!.torchMode = AVCaptureDevice.TorchMode.on
+                        torchIsOn = true
+                    }
+                    device!.unlockForConfiguration()
+                } catch {
+                    print(error)
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + flashDuration) {
+                    self.flashLight()
+                }
             }
         }
-        return morseCode
     }
-}
-
-
-struct Display: View {
-    @State private var goBack = false
     
-    var body: some View {
-        VStack{
-            Image("logo")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 48, height: 48)
-            Text("Output Text")
-                .frame(width: 400, height: 200)
-        }
-        Button {
-            goBack.toggle()
-        } label: {
-            Text("Back")
-                .frame(width: 100, height: 50)
-                .background(Color.blue)
-                .foregroundColor(.white)
-                .cornerRadius(10)
-        }.sheet(isPresented: $goBack){
-            AppContentView().scaledToFill()
+    extension String {
+        func morseCode() -> String {
+            let morseCodeDictionary = [
+                "a": ".-",
+                "b": "-...",
+                "c": "-.-.",
+                "d": "-..",
+                "e": ".",
+                "f": "..-.",
+                "g": "--.",
+                "h": "....",
+                "i": "..",
+                "j": ".---",
+                "k": "-.-",
+                "l": ".-..",
+                "m": "--",
+                "n": "-.",
+                "o": "---",
+                "p": ".--.",
+                "q": "--.-",
+                "r": ".-.",
+                "s": "...",
+                "t": "-",
+                "u": "..-",
+                "v": "...-",
+                "w": ".--",
+                "x": "-..-",
+                "y": "-.--",
+                "z": "--..",
+                "1": ".----",
+                "2": "..---",
+                "3": "...--",
+                "4": "....-",
+                "5": ".....",
+                "6": "-....",
+                "7": "--...",
+                "8": "---..",
+                "9": "----.",
+                "0": "-----",
+                " ": "/"
+            ]
+            
+            var morseCode = ""
+            for character in self.lowercased() {
+                if let code = morseCodeDictionary[String(character)] {
+                    morseCode += code + " "
+                }
+            }
+            return morseCode
         }
     }
-}
+    
+    
+    struct Display: View {
+        @State private var goBack = false
+        
+        var body: some View {
+            GeometryReader { geo in
+                ZStack {
+                    
+                    Image("Image 3")
+                        .resizable()
+                        .scaledToFill()
+                        .edgesIgnoringSafeArea(.all)
+                        .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
+                        .opacity(1.0)            
+                    VStack{
+                            Image("logo")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 48, height: 48)
+                            Text("Output Text")
+                                .frame(width: 400, height: 200)
+                        }
+                    Button {
+                        goBack.toggle()
+                    } label: {
+                        Text("Back")
+                            .frame(width: 100, height: 50)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }.sheet(isPresented: $goBack){
+                        AppContentView().scaledToFill()
+                    }
+                }
+            }
+        }
+    }
 
 //#Preview {
 //    Home()
