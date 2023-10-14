@@ -32,8 +32,11 @@ struct Home: View {
     
     var body: some View {
         VStack {
-            Rectangle()
-                .frame(width:300, height: 300)
+            Image("logo")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 192, height: 192)
+            
             Button(action: {
                 photo = true
                 openCameraRoll = false
@@ -45,8 +48,6 @@ struct Home: View {
             }).sheet(isPresented: $type) {
                 ImagePicker(selectedImage: $imageSelected, sourceType: .camera)
             }
-            
-            
             
             Button(action: {
                 photo = true
@@ -63,6 +64,7 @@ struct Home: View {
     }
 }
 
+
 struct Display: View {
     var body: some View {
         VStack{
@@ -75,5 +77,3 @@ struct Display: View {
 //#Preview {
 //    Home()
 //}
-
-
