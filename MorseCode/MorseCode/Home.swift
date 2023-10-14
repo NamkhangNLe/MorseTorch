@@ -36,10 +36,13 @@ struct Home: View {
     
     var body: some View {
         VStack {
-            Image("logo")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 192, height: 192)
+            HStack {
+                Image("logo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 192, height: 192)
+            }
+            
             
             Button(action: {
                 photo = true
