@@ -120,6 +120,7 @@ struct Translate: View{
     @State var text = ""
     @State var torchIsOn = false
     @State var buttonTapped = false
+    @State private var goBack = false
     let flashDuration = 0.5
     
     var body: some View {
@@ -153,6 +154,17 @@ struct Translate: View{
                     .background(Color.blue)
                     .foregroundColor(.white)
                     .cornerRadius(10)
+            }
+            Button {
+                goBack.toggle()
+            } label: {
+                Text("Back")
+                    .frame(width: 100, height: 50)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+            }.sheet(isPresented: $goBack){
+                AppContentView().scaledToFill()
             }
 
         }
@@ -235,6 +247,8 @@ extension String {
 
 
 struct Display: View {
+    @State private var goBack = false
+    
     var body: some View {
         VStack{
             Image("logo")
@@ -243,6 +257,17 @@ struct Display: View {
                 .frame(width: 48, height: 48)
             Text("Output Text")
                 .frame(width: 400, height: 200)
+        }
+        Button {
+            goBack.toggle()
+        } label: {
+            Text("Back")
+                .frame(width: 100, height: 50)
+                .background(Color.blue)
+                .foregroundColor(.white)
+                .cornerRadius(10)
+        }.sheet(isPresented: $goBack){
+            AppContentView().scaledToFill()
         }
     }
 }
