@@ -144,6 +144,17 @@ struct Translate: View{
                     .foregroundColor(.white)
                     .cornerRadius(10)
             }).disabled(buttonTapped)
+            Button {
+                buttonTapped = false
+                text = ""
+            } label: {
+                Text("Reset")
+                    .frame(width: 300, height: 50)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+            }
+
         }
     }
     
