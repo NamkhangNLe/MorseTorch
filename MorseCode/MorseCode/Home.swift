@@ -89,7 +89,7 @@ struct Home: View {
 struct Translate: View{
     @State var text = ""
     @State var torchIsOn = false
-    let flashDuration = 0.2
+    let flashDuration = 0.5
     
     var body: some View {
         VStack {
