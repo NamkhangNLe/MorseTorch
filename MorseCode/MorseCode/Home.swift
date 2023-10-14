@@ -37,6 +37,20 @@ struct Home: View {
     
     var body: some View {
         VStack {
+            HStack {
+                Image("logo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 196, height: 384)
+                Text("""
+                     Morse
+                     Torch
+                    """)
+                    .frame(width: 196, height: 384)
+                    .font(.largeTitle)
+                    .scaledToFill()
+                    
+            }
             Image("logo")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
