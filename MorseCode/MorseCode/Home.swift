@@ -43,7 +43,7 @@ struct Home: View {
                 Text("Record Video")
                     .frame(width:300, height:50)
             }).sheet(isPresented: $type) {
-                ImagePicker(selectedImage: $imageSelected, sourceType: .camera)
+                ImagePicker(selectedImage: $imageSelected, sourceType: .camera, videoSelected: $videoSelected)
             }
             
             
@@ -57,7 +57,7 @@ struct Home: View {
                 Text("Upload Video")
                     .frame(width:300, height:50)
             }).sheet(isPresented: $openCameraRoll) {
-                ImagePicker(selectedImage: $imageSelected, sourceType: .photoLibrary)
+                ImagePicker(selectedImage: $imageSelected, sourceType: .photoLibrary, videoSelected: $videoSelected)
             }
         }
     }
