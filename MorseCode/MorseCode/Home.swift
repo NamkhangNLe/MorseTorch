@@ -77,14 +77,24 @@ struct Home: View {
 }
 
 struct Translate: View{
+    @State var text = ""
+    
     var body: some View {
         VStack {
             Image("logo")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 48, height: 48)
-            Text("Translate Text")
-                .frame(width: 400, height: 200)
+            TextField("Enter text to translate", text: $text)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+            Button(action: {
+                // Save the entered text for later use
+                UserDefaults.standard.set(text, forKey: "textToTranslate")
+            }, label: {
+                Text("Translate Text")
+                    .frame(width: 300, height: 50)
+            })
         }
     }
 }
