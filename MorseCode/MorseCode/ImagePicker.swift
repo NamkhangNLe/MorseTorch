@@ -47,7 +47,7 @@ struct ImagePicker: UIViewControllerRepresentable {
             }
             
             parent.presentationMode.wrappedValue.dismiss()
-            let videoSelected = true
+            _ = true
         }
     }
     
