@@ -57,7 +57,14 @@ struct Home: View {
                     .font(.system(size: 50))
                     .scaledToFill()
                     
-                    Spacer().frame(height:40)
+                    Text("Morse to Text")
+                        .frame(width: 190, height: 40)
+                        .font(.system(size: 25))
+                        .scaledToFill()
+                        .background(Color.gray.opacity(0.2))
+                        .foregroundColor(.white)
+                        .cornerRadius(20)
+
                     
                     
                     Button(action: {
@@ -68,7 +75,7 @@ struct Home: View {
                     }, label: {
                         Text("Record Video")
                             .frame(width:300, height:50)
-                            .background(Color.blue)
+                            .background(Color.black.opacity(0.3))
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     }).sheet(isPresented: $type) {
@@ -83,21 +90,27 @@ struct Home: View {
                     }, label: {
                         Text("Upload Video")
                             .frame(width:300, height:50)
-                            .background(Color.blue)
+                            .background(Color.black.opacity(0.4))
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     }).sheet(isPresented: $openCameraRoll) {
                         ImagePicker(selectedImage: $imageSelected, sourceType: .photoLibrary, videoSelected: $videoSelected)
                     }
                     
-                    Spacer().frame(height:40)
+                    Text("Text to Morse")
+                        .frame(width: 190, height: 40)
+                        .font(.system(size: 25))
+                        .scaledToFill()
+                        .background(Color.black.opacity(0.5))
+                        .foregroundColor(.white)
+                        .cornerRadius(20)
                     
                     Button(action: {
                         translate = true
                     }, label: {
                         Text("Translate Text")
                             .frame(width: 300, height: 50)
-                            .background(Color.blue)
+                            .background(Color.black.opacity(0.7))
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     })
