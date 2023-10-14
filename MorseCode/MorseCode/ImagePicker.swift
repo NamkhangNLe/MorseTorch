@@ -17,6 +17,7 @@ struct ImagePicker: UIViewControllerRepresentable {
     @Binding var selectedImage:UIImage
     @Environment(\.presentationMode) private var presentationMode
     var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    @Binding var videoSelected: Bool
     //var mediaTypes = [KuTTypeMovie as String]
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> some UIViewController {
@@ -27,11 +28,13 @@ struct ImagePicker: UIViewControllerRepresentable {
         
         imagePicker.mediaTypes = ["public.movie"]
         imagePicker.delegate = context.coordinator
-        
         return imagePicker
+        
+
     }
     
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+        
     }
     
     final class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -41,13 +44,14 @@ struct ImagePicker: UIViewControllerRepresentable {
             self.parent = parent
         }
         
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any], videoSelected: Bool) {
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                 parent.selectedImage = image
             }
             
             parent.presentationMode.wrappedValue.dismiss()
-            _ = true
+            parent.videoSelected = true
+            
         }
     }
     
