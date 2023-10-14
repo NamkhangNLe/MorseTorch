@@ -26,10 +26,10 @@ struct Home: View {
                 openCameraRoll = true
             }, label: {
                 if photo {
-                    Image(uiImage: imageSelected)
-                        .frame(width:300, height:50)
+                    
+                    //progress to next screen and run 
                 } else {
-                    Rectangle()
+                    Text("Upload Video")
                         .frame(width:300, height:50)
                 }
             })
