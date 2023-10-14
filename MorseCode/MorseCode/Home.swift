@@ -77,6 +77,12 @@ struct Home: View {
 }
 
 struct Translate: View{
+    @State private var flashlight = false
+    @State private var english: String = ""
+    @FocusState private var textFieldIsFocused: Bool
+    
+    
+    
     var body: some View {
         VStack {
             Image("logo")
@@ -84,7 +90,40 @@ struct Translate: View{
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 48, height: 48)
             Text("Translate Text")
-                .frame(width: 400, height: 200)
+                .frame(width: 400, height: 100)
+            TextField(
+                "Enter Text",
+                text: $english
+            ).focused($textFieldIsFocused)
+            //
+            .onSubmit {
+                
+            }
+            .disableAutocorrection(true)
+            .border(.secondary)
+            
+            Text(english).foregroundColor(textFieldIsFocused ? .red : .blue)
+            
+            Button {
+                let codeArray = Array(english)
+                flashlight = true
+            } label: {
+                Text("Translate Text to Morse")
+                    .frame(width:300, height:50)
+            }
+        }
+        if(flashlight) {
+            Flashlight()
+        }
+    }
+}
+
+struct Flashlight: View {
+    var body: some View {
+        VStack {
+            Text("Translating...")
+                .frame(width:300, height:50)
+            
         }
     }
 }
