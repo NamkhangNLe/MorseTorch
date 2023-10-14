@@ -37,25 +37,21 @@ struct Home: View {
     
     var body: some View {
         VStack {
-            HStack {
+            
                 Image("logo")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 196, height: 384)
+                    .frame(width: 384, height: 300)
                 Text("""
-                     Morse
-                     Torch
+                     Morse Torch
                     """)
-                    .frame(width: 196, height: 384)
+                    .frame(width: 384, height: 100)
                     .font(.largeTitle)
                     .scaledToFill()
-                    
-            }
-            Image("logo")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 192, height: 192)
             
+            Spacer().frame(height:40)
+
+                    
             Button(action: {
                 photo = true
                 openCameraRoll = false
@@ -86,6 +82,8 @@ struct Home: View {
                 ImagePicker(selectedImage: $imageSelected, sourceType: .photoLibrary, videoSelected: $videoSelected)
             }
             
+            Spacer().frame(height:40)
+            
             Button(action: {
                 translate = true
             }, label: {
@@ -94,6 +92,14 @@ struct Home: View {
                     .background(Color.blue)
                     .foregroundColor(.white)
                     .cornerRadius(10)
+            })
+            
+            Button(action: {
+                if let url = URL(string: "https://github.com/NamkhangNLe/MorseCode"), UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url)
+                }
+            }, label: {
+                Image("Image 2").resizable().frame(width: 50, height: 50)
             })
     
         }
