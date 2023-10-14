@@ -9,14 +9,17 @@ import SwiftUI
 
 struct AppContentView: View {
     @State var videoSelected = false
+    @State var translate = false
     
     var body: some View{
         return Group {
             if videoSelected {
                 Display()
+            } else if translate {
+                Translate()
             }
             else {
-                Home(videoSelected: $videoSelected)
+                Home(videoSelected: $videoSelected, translate: $translate)
             }
         }
     }
@@ -24,6 +27,7 @@ struct AppContentView: View {
 
 struct Home: View {
     @Binding var videoSelected: Bool
+    @Binding var translate: Bool
     @State var photo = false
     @State var openCameraRoll = false
     
@@ -60,6 +64,27 @@ struct Home: View {
             }).sheet(isPresented: $openCameraRoll) {
                 ImagePicker(selectedImage: $imageSelected, sourceType: .photoLibrary, videoSelected: $videoSelected)
             }
+            
+            Button(action: {
+                translate = true
+            }, label: {
+                Text("Create Morse Code")
+                    .frame(width: 300, height: 50)
+            })
+    
+        }
+    }
+}
+
+struct Translate: View{
+    var body: some View {
+        VStack {
+            Image("logo")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 48, height: 48)
+            Text("Translate Text")
+                .frame(width: 400, height: 200)
         }
     }
 }
@@ -68,6 +93,10 @@ struct Home: View {
 struct Display: View {
     var body: some View {
         VStack{
+            Image("logo")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 48, height: 48)
             Text("Output Text")
                 .frame(width: 400, height: 200)
         }
