@@ -38,6 +38,7 @@ struct Home: View {
                 photo = true
                 openCameraRoll = false
                 type = true
+                //videoSelected = true
             }, label: {
                 Text("Record Video")
                     .frame(width:300, height:50)
@@ -51,6 +52,7 @@ struct Home: View {
                 photo = true
                 openCameraRoll = true
                 type = false
+                
             }, label: {
                 Text("Upload Video")
                     .frame(width:300, height:50)
