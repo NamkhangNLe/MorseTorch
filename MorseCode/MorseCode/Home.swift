@@ -207,6 +207,4 @@ struct Display: View {
 //#Preview {
 //    Home()
 //}
-
-()
 //}
