@@ -49,6 +49,9 @@ struct Home: View {
             }, label: {
                 Text("Record Video")
                     .frame(width:300, height:50)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
             }).sheet(isPresented: $type) {
                 ImagePicker(selectedImage: $imageSelected, sourceType: .camera, videoSelected: $videoSelected)
             }
@@ -61,6 +64,9 @@ struct Home: View {
             }, label: {
                 Text("Upload Video")
                     .frame(width:300, height:50)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
             }).sheet(isPresented: $openCameraRoll) {
                 ImagePicker(selectedImage: $imageSelected, sourceType: .photoLibrary, videoSelected: $videoSelected)
             }
