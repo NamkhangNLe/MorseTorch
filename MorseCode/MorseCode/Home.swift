@@ -40,7 +40,14 @@ struct Home: View {
                 Image("logo")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 192, height: 192)
+                    .frame(width: 196, height: 384)
+                Text("""
+                     Morse
+                     Torch
+                    """)
+                    .frame(width: 196, height: 384)
+                    .font(kFontGujaratiScript)
+                    
             }
             
             
@@ -148,3 +155,5 @@ struct Display: View {
 //#Preview {
 //    Home()
 //}
+
+
