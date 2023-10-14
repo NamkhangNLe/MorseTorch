@@ -7,10 +7,23 @@
 
 import SwiftUI
 
-
+struct AppContentView: View {
+    @State var videoSelected = false
+    
+    var body: some View{
+        return Group {
+            if videoSelected {
+                Display()
+            }
+            else {
+                Home(videoSelected: $videoSelected)
+            }
+        }
+    }
+}
 
 struct Home: View {
-    
+    @Binding var videoSelected: Bool
     @State var photo = false
     @State var openCameraRoll = false
     
@@ -48,9 +61,17 @@ struct Home: View {
     }
 }
 
-
-#Preview {
-    Home()
+struct Display: View {
+    var body: some View {
+        VStack{
+            Text("Output Text")
+                .frame(width: 400, height: 200)
+        }
+    }
 }
+
+//#Preview {
+//    Home()
+//}
 
 
