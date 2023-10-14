@@ -25,7 +25,7 @@ struct ImagePicker: UIViewControllerRepresentable {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = sourceType
         
-        //imagePicker.mediaTypes = ["public.movie"]
+        imagePicker.mediaTypes = ["public.movie"]
         imagePicker.delegate = context.coordinator
         
         return imagePicker
