@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-
-
 struct Home: View {
     
     @State var photo = false
@@ -19,8 +17,11 @@ struct Home: View {
     
     var body: some View {
         VStack {
-            Rectangle()
-                .frame(width:300, height: 300)
+            Image("logo")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 192, height: 192)
+            
             Button(action: {
                 photo = true
                 openCameraRoll = false
@@ -31,8 +32,6 @@ struct Home: View {
             }).sheet(isPresented: $type) {
                 ImagePicker(selectedImage: $imageSelected, sourceType: .camera)
             }
-            
-            
             
             Button(action: {
                 photo = true
@@ -48,9 +47,6 @@ struct Home: View {
     }
 }
 
-
 #Preview {
     Home()
 }
-
-
