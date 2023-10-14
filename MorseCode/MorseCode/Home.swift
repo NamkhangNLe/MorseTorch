@@ -53,8 +53,8 @@ struct Home: View {
                     Text("""
                      Morse Torch
                     """)
-                    .frame(width: 384, height: 100)
-                    .font(.largeTitle)
+                    .frame(width: 384, height: 80)
+                    .font(.system(size: 50))
                     .scaledToFill()
                     
                     Spacer().frame(height:40)
