@@ -36,72 +36,82 @@ struct Home: View {
     @State var type = false
     
     var body: some View {
-        VStack {
-            
-                Image("logo")
+        GeometryReader { geo in
+            ZStack {
+                
+                Image("Image 3")
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 384, height: 300)
-                Text("""
+                    .scaledToFill()
+                    .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                    .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
+                    .opacity(1.0)
+                VStack {
+                    Image("logo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 384, height: 350)
+                    Text("""
                      Morse Torch
                     """)
                     .frame(width: 384, height: 100)
                     .font(.largeTitle)
                     .scaledToFill()
-            
-            Spacer().frame(height:40)
-
                     
-            Button(action: {
-                photo = true
-                openCameraRoll = false
-                type = true
-                //videoSelected = true
-            }, label: {
-                Text("Record Video")
-                    .frame(width:300, height:50)
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-            }).sheet(isPresented: $type) {
-                ImagePicker(selectedImage: $imageSelected, sourceType: .camera, videoSelected: $videoSelected)
-            }
-            
-            Button(action: {
-                photo = true
-                openCameraRoll = true
-                type = false
-                
-            }, label: {
-                Text("Upload Video")
-                    .frame(width:300, height:50)
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-            }).sheet(isPresented: $openCameraRoll) {
-                ImagePicker(selectedImage: $imageSelected, sourceType: .photoLibrary, videoSelected: $videoSelected)
-            }
-            
-            Spacer().frame(height:40)
-            
-            Button(action: {
-                translate = true
-            }, label: {
-                Text("Translate Text")
-                    .frame(width: 300, height: 50)
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-            })
-            
-            Button(action: {
-                if let url = URL(string: "https://github.com/NamkhangNLe/MorseCode"), UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.open(url)
+                    Spacer().frame(height:40)
+                    
+                    
+                    Button(action: {
+                        photo = true
+                        openCameraRoll = false
+                        type = true
+                        //videoSelected = true
+                    }, label: {
+                        Text("Record Video")
+                            .frame(width:300, height:50)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }).sheet(isPresented: $type) {
+                        ImagePicker(selectedImage: $imageSelected, sourceType: .camera, videoSelected: $videoSelected)
+                    }
+                    
+                    Button(action: {
+                        photo = true
+                        openCameraRoll = true
+                        type = false
+                        
+                    }, label: {
+                        Text("Upload Video")
+                            .frame(width:300, height:50)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }).sheet(isPresented: $openCameraRoll) {
+                        ImagePicker(selectedImage: $imageSelected, sourceType: .photoLibrary, videoSelected: $videoSelected)
+                    }
+                    
+                    Spacer().frame(height:40)
+                    
+                    Button(action: {
+                        translate = true
+                    }, label: {
+                        Text("Translate Text")
+                            .frame(width: 300, height: 50)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    })
+                    
+                    Button(action: {
+                        if let url = URL(string: "https://github.com/NamkhangNLe/MorseCode"), UIApplication.shared.canOpenURL(url) {
+                            UIApplication.shared.open(url)
+                        }
+                    }, label: {
+                        Image("Image 2").resizable().frame(width: 50, height: 50)
+                    })
+                    
                 }
-            }, label: {
-                Image("Image 2").resizable().frame(width: 50, height: 50)
-            })
-    
+            }
         }
     }
 }
