@@ -46,7 +46,8 @@ struct Home: View {
                      Torch
                     """)
                     .frame(width: 196, height: 384)
-                    .font(kFontGujaratiScript)
+                    .font(.largeTitle)
+                    .scaledToFill()
                     
             }
             
