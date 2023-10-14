@@ -61,7 +61,7 @@ struct Home: View {
                         .frame(width: 190, height: 40)
                         .font(.system(size: 25))
                         .scaledToFill()
-                        .background(Color.gray.opacity(0.2))
+//                        .background(Color.gray.opacity(0.2))
                         .foregroundColor(.white)
                         .cornerRadius(20)
 
@@ -101,7 +101,7 @@ struct Home: View {
                         .frame(width: 190, height: 40)
                         .font(.system(size: 25))
                         .scaledToFill()
-                        .background(Color.black.opacity(0.5))
+//                        .background(Color.black.opacity(0.5))
                         .foregroundColor(.white)
                         .cornerRadius(20)
                     
@@ -110,7 +110,7 @@ struct Home: View {
                     }, label: {
                         Text("Translate Text")
                             .frame(width: 300, height: 50)
-                            .background(Color.black.opacity(0.7))
+                            .background(Color.black.opacity(0.65))
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     })
@@ -151,9 +151,12 @@ struct Translate: View{
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 48, height: 48)
+                    
                     TextField("Enter text to translate", text: $text)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .background(Color.gray)
                         .padding()
+                    
                     Button(action: {
                         // Save the entered text for later use
                         UserDefaults.standard.set(text, forKey: "textToTranslate")
@@ -163,26 +166,28 @@ struct Translate: View{
                     }, label: {
                         Text("Translate")
                             .frame(width: 300, height: 50)
-                            .background(Color.blue)
+                            .background(Color.black.opacity(0.3))
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     }).disabled(buttonTapped)
+                    
                     Button {
                         buttonTapped = false
                         text = ""
                     } label: {
                         Text("Reset")
                             .frame(width: 300, height: 50)
-                            .background(Color.blue)
+                            .background(Color.black.opacity(0.5))
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     }
+                    
                     Button {
                         goBack.toggle()
                     } label: {
                         Text("Back")
                             .frame(width: 100, height: 50)
-                            .background(Color.blue)
+                            .background(Color.black.opacity(0.9))
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     }.fullScreenCover(isPresented: $goBack){
@@ -290,24 +295,20 @@ struct Translate: View{
                                 .frame(width: 48, height: 48)
                             Text("Output Text")
                                 .frame(width: 400, height: 200)
+                            Button {
+                                goBack.toggle()
+                            } label: {
+                                Text("Back")
+                                    .frame(width: 100, height: 50)
+                                    .background(Color.black.opacity(0.3))
+                                    .foregroundColor(.white)
+                                    .cornerRadius(10)
+                            }.fullScreenCover(isPresented: $goBack){
+                                AppContentView()
+                            }
                         }
-                    Button {
-                        goBack.toggle()
-                    } label: {
-                        Text("Back")
-                            .frame(width: 100, height: 50)
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                    }.fullScreenCover(isPresented: $goBack){
-                        AppContentView()
                     }
                 }
             }
         }
-    }
 
-//#Preview {
-//    Home()
-//}
-//}
