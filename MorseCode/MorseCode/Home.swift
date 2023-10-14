@@ -172,8 +172,8 @@ struct Translate: View{
                             .background(Color.blue)
                             .foregroundColor(.white)
                             .cornerRadius(10)
-                    }.sheet(isPresented: $goBack){
-                        AppContentView().scaledToFit()
+                    }.fullScreenCover(isPresented: $goBack){
+                        AppContentView()
                     }
                     
                 }
@@ -286,8 +286,8 @@ struct Translate: View{
                             .background(Color.blue)
                             .foregroundColor(.white)
                             .cornerRadius(10)
-                    }.sheet(isPresented: $goBack){
-                        AppContentView().scaledToFill()
+                    }.fullScreenCover(isPresented: $goBack){
+                        AppContentView()
                     }
                 }
             }
