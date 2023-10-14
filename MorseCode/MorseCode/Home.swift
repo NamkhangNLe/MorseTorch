@@ -26,8 +26,7 @@ struct Home: View {
                 openCameraRoll = true
             }, label: {
                 if photo {
-                    
-                    //progress to next screen and run 
+                    //let String path = UIImagePickerController.InfoKey
                 } else {
                     Text("Upload Video")
                         .frame(width:300, height:50)
@@ -35,7 +34,7 @@ struct Home: View {
             })
             
         }.sheet(isPresented: $openCameraRoll) {
-            ImagePicker(sourceType: .photoLibrary)
+            ImagePicker(selectedImage: $imageSelected, sourceType: .photoLibrary)
         }
     }
 }
