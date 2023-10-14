@@ -18,6 +18,7 @@ struct ImagePicker: UIViewControllerRepresentable {
         let imagePicker = UIImagePickerController()
         imagePicker.allowsEditing = false
         imagePicker.sourceType = sourceType
+//        imagePicker.mediaTypes =
         
         return imagePicker
     }
