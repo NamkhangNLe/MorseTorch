@@ -13,6 +13,7 @@ struct Home: View {
             Text("Hello, World!")
             Text("Hello, World!")
             Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
         }
     }
 }
