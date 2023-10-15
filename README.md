@@ -54,7 +54,7 @@ Morse Touch can identify flashing lights and translate code for you.
 
 No bells, no whistles. A 911 call for when no one answers.
 
-![image](https://github.com/NamkhangNLe/MorseCode/assets/76028202/d3fc0ee2-f538-4005-b99c-34a06ac9ca5c)
+![IMG_9274](https://github.com/NamkhangNLe/MorseCode/assets/122403630/aee8e207-5cd1-4099-a793-ebfe8b4c512e)
 
 ## ![32](https://github.com/NamkhangNLe/MorseCode/assets/76028202/ae1dc7fb-5945-444b-88d4-d3f342049357) Contributing
 
@@ -66,7 +66,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## ![32](https://github.com/NamkhangNLe/MorseCode/assets/76028202/ae1dc7fb-5945-444b-88d4-d3f342049357) Acknowledgments
 
-- Enormous thanks to the Hail Mary of the project truly, the Torch framework, available at https://github.com/cpageler93/Torch/tree/master
+- Enormous thanks to the true Hail Mary of the project, the Torch framework, available at https://github.com/cpageler93/Torch/tree/master
 - Inspired by the timeless utility of Morse code in communication.
   
 **Morse Torch - Illuminate Communication in the Dark with Morse Code. Your Beacon in Emergencies.**

@@ -19,6 +19,7 @@ func get3DVideoArray() -> [[[Int]]] {
         print("Video file not found.")
         return []
     }
+
     
     let frames = extract2(from: videoURL)
     var framesArray : [[[Int]]] = []

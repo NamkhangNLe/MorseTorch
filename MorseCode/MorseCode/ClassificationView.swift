@@ -22,8 +22,8 @@ struct ClassificationView: View {
     }
     
     func testing() {
-        let arr = get3DVideoArray()
-        let MSarr = makeModemap(in: arr)
+        //let arr = get3DVideoArray()
+        //let MSarr = makeModemap(in: arr)
     }
 
 }
