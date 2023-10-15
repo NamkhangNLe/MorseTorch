@@ -42,7 +42,7 @@ Harness the power of computer vision to decode Morse code from visual signals. S
 ## In Action
 Use your phone flashlight to reach first responders.
 
-![image](https://github.com/NamkhangNLe/MorseCode/assets/76028202/64cc3a40-aa02-4bf5-9991-801cd3be96bf)
+![image](https://github.com/NamkhangNLe/MorseCode/assets/76028202/fe85c12b-1a9f-4a77-9775-51483454246b)
 
 Record video and upload to Morse Torch later.
 
