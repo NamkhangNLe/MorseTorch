@@ -81,7 +81,7 @@ struct Home: View {
                     }).sheet(isPresented: $type) {
                         ImagePicker(selectedImage: $imageSelected, imageURL: $url, sourceType: .camera, videoSelected: $videoSelected)
                         if let url = url {
-                            VideoMod().get3DVideoArray(url)
+                            get3DVideoArray(url)
                         }
                     }
                     
@@ -100,7 +100,7 @@ struct Home: View {
                     }).sheet(isPresented: $openCameraRoll) {
                         ImagePicker(selectedImage: $imageSelected, imageURL: $url, sourceType: .photoLibrary, videoSelected: $videoSelected)
                         if let url = url {
-                            VideoMod().get3DVideoArray(url)
+                            get3DVideoArray(url)
                         }
                     }
                     
