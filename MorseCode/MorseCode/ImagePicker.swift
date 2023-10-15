@@ -18,17 +18,21 @@ struct ImagePicker: UIViewControllerRepresentable {
     @Environment(\.presentationMode) private var presentationMode
     var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @Binding var videoSelected: Bool
+    @Binding var imageURL: URL?
     //var mediaTypes = [KuTTypeMovie as String]
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> some UIViewController {
         
         let imagePicker = UIImagePickerController()
+        
         imagePicker.allowsEditing = false
         imagePicker.sourceType = sourceType
         
         imagePicker.mediaTypes = ["public.movie"]
         imagePicker.delegate = context.coordinator
         return imagePicker
+        
+        
         
 
     }
@@ -44,8 +48,10 @@ struct ImagePicker: UIViewControllerRepresentable {
             self.parent = parent
         }
         
-        private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])  {
-            let imageURL = info[.imageURL] as? URL
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])  {
+            if let url = info[.imageURL] as? URL {
+                parent.imageURL = url
+            }
             
             
             if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
@@ -55,9 +61,6 @@ struct ImagePicker: UIViewControllerRepresentable {
             parent.presentationMode.wrappedValue.dismiss()
             parent.videoSelected = true
             
-            func  getImageURL() -> URL?{
-                return imageURL
-            }
             
             
         }

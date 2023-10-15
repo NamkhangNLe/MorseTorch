@@ -79,7 +79,10 @@ struct Home: View {
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     }).sheet(isPresented: $type) {
-                        ImagePicker(selectedImage: $imageSelected, sourceType: .camera, videoSelected: $videoSelected)
+                        ImagePicker(selectedImage: $imageSelected, imageURL: $url, sourceType: .camera, videoSelected: $videoSelected)
+                        if let url = url {
+                            VideoMod().get3DVideoArray(url)
+                        }
                     }
                     
                     
@@ -95,7 +98,10 @@ struct Home: View {
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     }).sheet(isPresented: $openCameraRoll) {
-                        ImagePicker(selectedImage: $imageSelected, sourceType: .photoLibrary, videoSelected: $videoSelected)
+                        ImagePicker(selectedImage: $imageSelected, imageURL: $url, sourceType: .photoLibrary, videoSelected: $videoSelected)
+                        if let url = url {
+                            VideoMod().get3DVideoArray(url)
+                        }
                     }
                     
                     Text("Text to Morse")

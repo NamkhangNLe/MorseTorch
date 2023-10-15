@@ -12,9 +12,9 @@ import CoreGraphics
 import AVFoundation
 
 
-func get3DVideoArray() -> [[[Int]]] {
+func get3DVideoArray(url: String) -> [[[Int]]] {
     
-    guard let videoURL = Bundle.main.url(forResource: "IMG_7605", withExtension: "mov")
+    guard let videoURL = Bundle.main.url(forResource: url, withExtension: "mov")
     else {
         print("Video file not found.")
         return []
