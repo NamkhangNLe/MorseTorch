@@ -62,7 +62,6 @@ struct Home: View {
                         .frame(width: 190, height: 40)
                         .font(.system(size: 25))
                         .scaledToFill()
-//                        .background(Color.gray.opacity(0.2))
                         .foregroundColor(.white)
                         .cornerRadius(20)
 
