@@ -32,7 +32,7 @@ struct Home: View {
     @Binding var translate: Bool
     @State var photo = false
     @State var openCameraRoll = false
-    
+    @State var url = ""
     @State var imageSelected = UIImage()
     @State var type = false
     
@@ -81,6 +81,7 @@ struct Home: View {
                     }).sheet(isPresented: $type) {
                         ImagePicker(selectedImage: $imageSelected, sourceType: .camera, videoSelected: $videoSelected)
                     }
+                    
                     
                     Button(action: {
                         photo = true
