@@ -346,7 +346,7 @@ struct Translate: View{
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 48, height: 48)
-                            Text("Output Text") // maxsString.fromMorseCode()
+                            Text(tester().fromMorseCode()) // maxsString.fromMorseCode()
                                 .frame(width: 400, height: 200)
                             Button {
                                 goBack.toggle()
