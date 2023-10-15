@@ -114,7 +114,7 @@ struct Home: View {
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     })
-                    Text("-.. . ...- . .-.. --- .--. . -.. / ..-. --- .-. / .... .- -.-. -.- --. - -..-")
+                    Text("-.. . ...- . .-.. --- .--. . -..  ..-. --- .-.  .... .- -.-. -.- --. - -..-")
                         .frame(width: 300, height: 20)
                         .scaledToFit()
                         .font(.system(size: 15))
@@ -216,6 +216,7 @@ struct Translate: View{
                     }
                     
                     Button {
+                        flashLightOff()
                         goBack.toggle()
                         flashLightOff()
                     } label: {
@@ -298,6 +299,17 @@ struct Translate: View{
                 }
             }
         }
+    
+    func flashLightOff() {
+        let device = AVCaptureDevice.default(for: AVMediaType.video)
+        if (device != nil) {
+            do {
+                try device!.lockForConfiguration()
+                device!.torchMode = AVCaptureDevice.TorchMode.off
+            } catch {
+                print(error)
+            }
+        }
     }
 
     func flashLightOn() {
@@ -326,6 +338,7 @@ struct Translate: View{
         }
     }
 
+}
     
     extension String {
         func morseCode() -> String {

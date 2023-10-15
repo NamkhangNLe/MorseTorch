@@ -8,16 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		91716B932ADA4154004223CA /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91716B922ADA4154004223CA /* ImagePicker.swift */; };
+		917520B52ADB8B9A00188A57 /* Torch.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917520B42ADB8B9A00188A57 /* Torch.xcframework */; };
+		917520B62ADB8B9A00188A57 /* Torch.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 917520B42ADB8B9A00188A57 /* Torch.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		91FD383B2ADB0B2E00F411CE /* VideoMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FD383A2ADB0B2E00F411CE /* VideoMod.swift */; };
 		B5216D022ADA26DC00BCAD0D /* MorseCodeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5216D012ADA26DC00BCAD0D /* MorseCodeApp.swift */; };
 		B5216D042ADA26DC00BCAD0D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5216D032ADA26DC00BCAD0D /* ContentView.swift */; };
 		B5216D062ADA26DE00BCAD0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5216D052ADA26DE00BCAD0D /* Assets.xcassets */; };
 		B5216D092ADA26DE00BCAD0D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5216D082ADA26DE00BCAD0D /* Preview Assets.xcassets */; };
 		B5216D102ADA2A5900BCAD0D /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5216D0F2ADA2A5900BCAD0D /* Home.swift */; };
+		B59E31172ADB7B9F00E6A4C8 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59E31162ADB7B9F00E6A4C8 /* VideoView.swift */; };
+		B59E31192ADB802E00E6A4C8 /* IMG_7605.mov in Resources */ = {isa = PBXBuildFile; fileRef = B59E31182ADB802E00E6A4C8 /* IMG_7605.mov */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		917520B72ADB8B9A00188A57 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				917520B62ADB8B9A00188A57 /* Torch.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		91716B922ADA4154004223CA /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		917520B42ADB8B9A00188A57 /* Torch.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Torch.xcframework; path = MorseCode/Torch.xcframework; sourceTree = "<group>"; };
 		91FD383A2ADB0B2E00F411CE /* VideoMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoMod.swift; sourceTree = "<group>"; };
 		B5216CFE2ADA26DC00BCAD0D /* Morse Torch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Morse Torch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5216D012ADA26DC00BCAD0D /* MorseCodeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorseCodeApp.swift; sourceTree = "<group>"; };
@@ -25,6 +44,8 @@
 		B5216D052ADA26DE00BCAD0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5216D082ADA26DE00BCAD0D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B5216D0F2ADA2A5900BCAD0D /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		B59E31162ADB7B9F00E6A4C8 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		B59E31182ADB802E00E6A4C8 /* IMG_7605.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = IMG_7605.mov; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,17 +53,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				917520B52ADB8B9A00188A57 /* Torch.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		917520B32ADB8B9A00188A57 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				917520B42ADB8B9A00188A57 /* Torch.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B5216CF52ADA26DC00BCAD0D = {
 			isa = PBXGroup;
 			children = (
 				B5216D002ADA26DC00BCAD0D /* MorseCode */,
 				B5216CFF2ADA26DC00BCAD0D /* Products */,
+				917520B32ADB8B9A00188A57 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,11 +90,13 @@
 			children = (
 				B5216D012ADA26DC00BCAD0D /* MorseCodeApp.swift */,
 				91FD383A2ADB0B2E00F411CE /* VideoMod.swift */,
+				B59E31162ADB7B9F00E6A4C8 /* VideoView.swift */,
 				B5216D032ADA26DC00BCAD0D /* ContentView.swift */,
 				B5216D052ADA26DE00BCAD0D /* Assets.xcassets */,
 				B5216D072ADA26DE00BCAD0D /* Preview Content */,
 				B5216D0F2ADA2A5900BCAD0D /* Home.swift */,
 				91716B922ADA4154004223CA /* ImagePicker.swift */,
+				B59E31182ADB802E00E6A4C8 /* IMG_7605.mov */,
 			);
 			path = MorseCode;
 			sourceTree = "<group>";
@@ -86,6 +119,7 @@
 				B5216CFA2ADA26DC00BCAD0D /* Sources */,
 				B5216CFB2ADA26DC00BCAD0D /* Frameworks */,
 				B5216CFC2ADA26DC00BCAD0D /* Resources */,
+				917520B72ADB8B9A00188A57 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5216D092ADA26DE00BCAD0D /* Preview Assets.xcassets in Resources */,
+				B59E31192ADB802E00E6A4C8 /* IMG_7605.mov in Resources */,
 				B5216D062ADA26DE00BCAD0D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,6 +181,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B59E31172ADB7B9F00E6A4C8 /* VideoView.swift in Sources */,
 				91FD383B2ADB0B2E00F411CE /* VideoMod.swift in Sources */,
 				B5216D042ADA26DC00BCAD0D /* ContentView.swift in Sources */,
 				91716B932ADA4154004223CA /* ImagePicker.swift in Sources */,
@@ -284,7 +320,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MorseCode/Preview Content\"";
-				DEVELOPMENT_TEAM = 3962GJ728U;
+				DEVELOPMENT_TEAM = RVLD4LVG6G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow Camera Access";
@@ -300,7 +336,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = NamkhangNLee;
+				PRODUCT_BUNDLE_IDENTIFIER = NamkhangNLee1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -316,7 +352,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MorseCode/Preview Content\"";
-				DEVELOPMENT_TEAM = 3962GJ728U;
+				DEVELOPMENT_TEAM = RVLD4LVG6G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow Camera Access";
@@ -332,7 +368,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = NamkhangNLee;
+				PRODUCT_BUNDLE_IDENTIFIER = NamkhangNLee1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

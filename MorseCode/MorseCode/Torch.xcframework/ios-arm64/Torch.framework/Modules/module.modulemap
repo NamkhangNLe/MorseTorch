@@ -1,0 +1,11 @@
+framework module Torch {
+  umbrella header "Torch.h"
+  export *
+
+  module * { export * }
+}
+
+module Torch.Swift {
+  header "Torch-Swift.h"
+  requires objc
+}
