@@ -17,7 +17,7 @@ Harness the power of computer vision to decode Morse code from visual signals. S
 
 1. **Clone the Repository**
     ```bash
-    git clone https://github.com/your-username/morse-torch.git
+    git clone https://github.com/your-NamkhangNLe/morse-torch.git
     ```
 
 2. **Open in Xcode**
