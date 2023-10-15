@@ -91,7 +91,7 @@ func extract2(from videoURL: URL) -> [UIImage] {
 
     let asset = AVAsset(url: videoURL)
     let assetDuration = CMTimeGetSeconds(asset.duration)
-    let frameRate = 5.0 // set number of fps
+    let frameRate = 30 // set number of fps
 
     let generator = AVAssetImageGenerator(asset: asset)
     generator.requestedTimeToleranceBefore = CMTime.zero
@@ -136,10 +136,8 @@ func pickLightSource(in lightGroupings: [String : [[Int]]]) -> [Int] {
         
         var cont = 0
         
-        print(mode)
         
         for lightSig in mode {
-            print(lightSig)
             if (lightSig == 1) {
                 cont += 1
             } else if (cont > 1) {
@@ -160,7 +158,6 @@ func pickLightSource(in lightGroupings: [String : [[Int]]]) -> [Int] {
             }
         }
             
-        print(freq)
     }
     
     

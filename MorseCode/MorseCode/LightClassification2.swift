@@ -25,17 +25,116 @@ func detectFlicker(in array3D: [[[Int]]]) -> [Int]? {
 
     // Group similar pixels. Out of y x y pixels, just average 1 and 0 by frame so if there are more 1s, the light source is on and vice versa
     // lightGroupings is a hashmap of all pixels organized into groups
-    let lightGroupings = makeGroups(in: array3D)
+    let lightGroupings = makeModemap(in: array3D)
     
     //Return is disabled for testing
     //return pickLightSource(in: lightGroupings)
-    return [1]
     //
-    
+    return []
 }
 
+//Take pixel history
+//Return array of history arrays, not every pixel gets added
+// Heuristic: numOnes/Length.
+func makeModemap(in array3D: [[[Int]]]) -> [Int] {
+    
+
+    let depth = array3D.count
+    let rows = array3D[0].count
+    let cols = array3D[0][0].count
+        
+    var modeMap = [[Int]]()
+    
+    let minConstant = 0.3 // Is off too often
+    let maxConstant = 0.7 // Is on too often
+    
+    
+    for row in 0..<rows {
+        for col in 0..<cols {
+            var numOnes = 0
+            var pixelHistory = [Int]()
+            
+            for layer in 0..<depth {
+                pixelHistory.append(array3D[layer][row][col])
+                if array3D[layer][row][col] == 1 {
+                    numOnes += 1
+                }
+            }
+            
+            let ratio = Double(numOnes)/Double(depth)
+            
+            if (ratio > minConstant && ratio < maxConstant) {
+                modeMap.append(pixelHistory)
+            }
+            
+        }
+    }
+    let morseCodeArr = getAvg(in: modeMap)
+    
+    return morseCodeArr
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Deprecated Functions
+
+func DEPRECATEDcomparePixels(in arr0: [Int], arr1: [Int]) -> Bool {
+
+    let leniancy = 0.7 //How similar the light histories have to be with each other in order to satisfy grouping
+    
+    var same = 0.0
+    for index in 0..<arr0.count {
+        if (arr0[index] == arr1[index]) {
+            same += 1.0
+        }
+    }
+    
+    let similarity = same / Double(arr0.count)
+
+    return similarity > leniancy
+}
+
+// Gets the average of the array of 1D arrays that are grouped by flicker rate (2D array). Returns a 1D array of the avg
+func getAvg(in array2D: [[Int]]) -> [Int] {
+    let rows = array2D.count
+    let cols = array2D[0].count
+    
+    var avgHistory = [Int]()
+
+    
+    for col in 0..<cols {
+        var numOnes = 0
+        var numZeros = 0
+        for row in 0..<rows {
+            if (array2D[row][col] == 1) {
+                numOnes += 1
+            } else {
+                numZeros += 1
+            }
+        }
+        if numZeros > numOnes {
+            avgHistory.append(0)
+        } else {
+            avgHistory.append(1)
+        }
+    }
+    
+    return avgHistory
+}
+
+
 //Creates groups based off similarity
-func makeGroups(in array3D: [[[Int]]]) -> [String : [[[Int]]]] {
+func DEPRECATEDmakeGroups(in array3D: [[[Int]]]) -> [String : [[[Int]]]] {
     let depth = array3D.count
     let rows = array3D[0].count
     let cols = array3D[0][0].count
@@ -43,26 +142,22 @@ func makeGroups(in array3D: [[[Int]]]) -> [String : [[[Int]]]] {
     // LightGroupings: Key is a 1D light history array (in string format), Value is a 2D array that represents every pixel and their light histories
     var lightGroupings: [String : [[[Int]]]] = [:]
     
-    
     // Iterate through rows and columns
     for row in 0..<rows {
         for col in 0..<cols {
-            
             var lightHistory = [Int]() //int array
             
             // Populate lightHistory with data from array3D
             for layer in 0..<depth {
                 lightHistory.append(array3D[layer][row][col])
             }
-            
             let groups = lightGroupings.keys
             var foundGroup = false
             
             // Iterate through the existing groups
             for group in groups {
-                
                 // Need to convert string array to array and plug array form into comparePixel
-                if comparePixels(in: stringToArr(strArr: group), arr1: lightHistory) {
+                if DEPRECATEDcomparePixels(in: stringToArr(strArr: group), arr1: lightHistory) {
                     // Group below needs to be an array -> string
                     if var existingValue = lightGroupings[group] {
                         existingValue.append([lightHistory]) //dummy variable just to append to
@@ -89,53 +184,8 @@ func makeGroups(in array3D: [[[Int]]]) -> [String : [[[Int]]]] {
         // avgKey below has to be a string
         updatedLightGroupings[avgKey.description] = value
     }
-    
+    print(updatedLightGroupings.count)
     return updatedLightGroupings
-}
-
-
-func comparePixels(in arr0: [Int], arr1: [Int]) -> Bool {
-    let leniancy = 0.9 //How similar the light histories have to be with each other in order to satisfy grouping
-    
-    var same = 0.0
-    for index in 0..<arr0.count {
-        if (arr0[index] == arr1[index]) {
-            same += 1.0
-        }
-    }
-    
-    let similarity = same / Double(arr0.count)
-
-    return similarity > leniancy
-}
-
-// Gets the average of the array of 1D arrays that are grouped by flicker rate (2D array). Returns a 1D array of the avg
-func getAvg(in array2D: [[Int]]) -> [Int] {
-    
-    let rows = array2D.count
-    let cols = array2D[0].count
-    
-    var avgHistory = [Int]()
-
-    
-    for col in 0..<cols {
-        var numOnes = 0
-        var numZeros = 0
-        for row in 0..<rows {
-            if (array2D[row][col] == 1) {
-                numOnes += 1
-            } else {
-                numZeros += 1
-            }
-        }
-        if numZeros > numOnes {
-            avgHistory.append(0)
-        } else {
-            avgHistory.append(1)
-        }
-    }
-    
-    return avgHistory
 }
 
 
