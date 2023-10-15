@@ -5,11 +5,18 @@
 //  Created by Jonathan Huang on 10/14/23.
 //
 // Given a 3D array of binary thresholded values of 1s and 0s, figure out which one is part is flickering, read from that graph, and return a list of 1s and 0s.
-
 import Foundation
 import Vision
 
+func stringToArr(strArr: String) -> [Int] {
+       let results = strArr
+                     .trimmingCharacters(in: CharacterSet(charactersIn: "[]"))
+                     .components(separatedBy:", ")
+                     .map { return Int($0.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines))!}
+       return results
+   }
 //output from Max plugs into here, imagine panes of 2D arrays
+
 //
 func detectFlicker(in array3D: [[[Int]]]) -> [Int]? {
     
@@ -20,21 +27,22 @@ func detectFlicker(in array3D: [[[Int]]]) -> [Int]? {
     }
     
     //GENERAL GOALS:
-    // Iterate through entire 2D array and procure time histories Have a similarity threshold with surroundings with a cutoff. Ex: given two arrays that represent light history, how similar do they have to be (figured out through testing but can start with like 90% or something.
+    // Iterate through entire 2D array and procure time histories (Done through . Have a similarity threshold with surroundings with a cutoff. Ex: given two arrays that represent light history, how similar do they have to be (figured out through testing but can start with like 90% or something.
 
 
     // Group similar pixels. Out of y x y pixels, just average 1 and 0 by frame so if there are more 1s, the light source is on and vice versa
     // lightGroupings is a hashmap of all pixels organized into groups
     let lightGroupings = makeGroups(in: array3D)
     
-    return pickLightSource(in: lightGroupings)
+    //Return is disabled for testing
+    //return pickLightSource(in: lightGroupings)
+    return [1]
     //
     
 }
 
-//Take in 2D array and finds all the ones, return group for that specific image. searchOnes calls makeGroups.
-//
-func makeGroups(in array3D: [[[Int]]]) -> [[Int] : [[[Int]]]] {
+//Creates groups based off similarity
+func makeGroups(in array3D: [[[Int]]]) -> [String : [[[Int]]]] {
     let depth = array3D.count
     let rows = array3D[0].count
     let cols = array3D[0][0].count
@@ -42,13 +50,12 @@ func makeGroups(in array3D: [[[Int]]]) -> [[Int] : [[[Int]]]] {
     // LightGroupings: Key is a 1D light history array (in string format), Value is a 2D array that represents every pixel and their light histories
     var lightGroupings: [String : [[[Int]]]] = [:]
     
-    var keyUsed = array3D[0][0] //This is used as a dummy to become the average keyValue after new lightHistory is appended
     
     // Iterate through rows and columns
     for row in 0..<rows {
         for col in 0..<cols {
             
-            var lightHistory = [Int]()
+            var lightHistory = [Int]() //int array
             
             // Populate lightHistory with data from array3D
             for layer in 0..<depth {
@@ -60,10 +67,10 @@ func makeGroups(in array3D: [[[Int]]]) -> [[Int] : [[[Int]]]] {
             
             // Iterate through the existing groups
             for group in groups {
-                let lightHistoryArray = lightHistory.compactMap { Int(String($0)) }
-
-                // Now you can pass lightHistoryArray to the function
-                if comparePixels(in: group, arr1: lightHistoryArray) {                    keyUsed = group
+                
+                // Need to convert string array to array and plug array form into comparePixel
+                if comparePixels(in: stringToArr(strArr: group), arr1: lightHistory) {
+                    // Group below needs to be an array -> string
                     if var existingValue = lightGroupings[group] {
                         existingValue.append([lightHistory]) //dummy variable just to append to
                         lightGroupings.updateValue(existingValue, forKey: group)
@@ -75,16 +82,19 @@ func makeGroups(in array3D: [[[Int]]]) -> [[Int] : [[[Int]]]] {
             
             // If no matching group is found, create a new entry
             if !foundGroup {
-                lightGroupings[lightHistory] = [[lightHistory]]
+                //lighthistory below needs to be a string for key and array for value
+                lightGroupings[lightHistory.description] = [[lightHistory]]
             }
         }
     }
     
     // Update the keys to be the average of all lightHistories of that group
-    var updatedLightGroupings: [[Int] : [[[Int]]]] = [:]
+    var updatedLightGroupings: [String : [[[Int]]]] = [:]
+    //lightGroupings below need to be an array
     for (_, value) in lightGroupings {
         let avgKey = getAvg(in: value.flatMap { $0 }) // Flatten the last two dimensions of the 3D array to make it 2D
-        updatedLightGroupings[avgKey] = value
+        // avgKey below has to be a string
+        updatedLightGroupings[avgKey.description] = value
     }
     
     return updatedLightGroupings
@@ -142,20 +152,5 @@ func getAvg(in array2D: [[Int]]) -> [Int] {
 // 1) one is arond 3x the difference of the other
 // 2) you hit the end and you just take the best you can do
 
-func pickLightSource(in lightGroupings: [[Int] : [[[Int]]]]) -> [Int] {
-    let avgKeys = lightGroupings.keys //they are all 1D arrays
-    
-    for key in avgKeys {
-        var hashMap: [Int: Int] = [:] //key = frequency of occurrance, value = # of contiguous 1s
-        var numOnes = 0
-        for onOff in key {
-            if (onOFF == 1) {
-                numOnes += 1
-            } else {
-                if (numOnes != 0) {
-                    hashmap[]
-                }
-            }
-        }
-    }
-}
+//Deleted pickLightSource
+
