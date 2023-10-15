@@ -49,7 +49,7 @@ struct Home: View {
                     Image("logo")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(width: 384, height: 350)
+                        .frame(width: 384, height: 300)
                     Text("""
                      Morse Torch
                     """)
@@ -114,6 +114,10 @@ struct Home: View {
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     })
+                    Text("-.. . ...- . .-.. --- .--. . -.. / ..-. --- .-. / .... .- -.-. -.- --. - -..-")
+                        .frame(width: 300, height: 20)
+                        .scaledToFit()
+                        .font(.system(size: 15))
                     
                     Button(action: {
                         if let url = URL(string: "https://github.com/NamkhangNLe/MorseCode"), UIApplication.shared.canOpenURL(url) {
@@ -122,6 +126,8 @@ struct Home: View {
                     }, label: {
                         Image("Image 2").resizable().frame(width: 50, height: 50)
                     })
+                    
+                    
                     
                 }
             }
@@ -196,8 +202,8 @@ struct Translate: View{
                     
                 }
             }
-            }
         }
+    }
         
         func flashLight() {
             let device = AVCaptureDevice.default(for: AVMediaType.video)

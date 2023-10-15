@@ -19,7 +19,7 @@
 /* Begin PBXFileReference section */
 		91716B922ADA4154004223CA /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		91FD383A2ADB0B2E00F411CE /* VideoMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoMod.swift; sourceTree = "<group>"; };
-		B5216CFE2ADA26DC00BCAD0D /* MorseCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MorseCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5216CFE2ADA26DC00BCAD0D /* Morse Torch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Morse Torch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5216D012ADA26DC00BCAD0D /* MorseCodeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorseCodeApp.swift; sourceTree = "<group>"; };
 		B5216D032ADA26DC00BCAD0D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B5216D052ADA26DE00BCAD0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,7 +49,7 @@
 		B5216CFF2ADA26DC00BCAD0D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B5216CFE2ADA26DC00BCAD0D /* MorseCode.app */,
+				B5216CFE2ADA26DC00BCAD0D /* Morse Torch.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,9 +79,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B5216CFD2ADA26DC00BCAD0D /* MorseCode */ = {
+		B5216CFD2ADA26DC00BCAD0D /* Morse Torch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B5216D0C2ADA26DE00BCAD0D /* Build configuration list for PBXNativeTarget "MorseCode" */;
+			buildConfigurationList = B5216D0C2ADA26DE00BCAD0D /* Build configuration list for PBXNativeTarget "Morse Torch" */;
 			buildPhases = (
 				B5216CFA2ADA26DC00BCAD0D /* Sources */,
 				B5216CFB2ADA26DC00BCAD0D /* Frameworks */,
@@ -91,9 +91,9 @@
 			);
 			dependencies = (
 			);
-			name = MorseCode;
+			name = "Morse Torch";
 			productName = MorseCode;
-			productReference = B5216CFE2ADA26DC00BCAD0D /* MorseCode.app */;
+			productReference = B5216CFE2ADA26DC00BCAD0D /* Morse Torch.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -124,7 +124,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B5216CFD2ADA26DC00BCAD0D /* MorseCode */,
+				B5216CFD2ADA26DC00BCAD0D /* Morse Torch */,
 			);
 		};
 /* End PBXProject section */
@@ -292,8 +292,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -323,8 +324,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -350,7 +352,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B5216D0C2ADA26DE00BCAD0D /* Build configuration list for PBXNativeTarget "MorseCode" */ = {
+		B5216D0C2ADA26DE00BCAD0D /* Build configuration list for PBXNativeTarget "Morse Torch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B5216D0D2ADA26DE00BCAD0D /* Debug */,

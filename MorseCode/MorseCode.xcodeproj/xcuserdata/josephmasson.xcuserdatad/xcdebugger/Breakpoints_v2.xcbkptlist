@@ -14,10 +14,72 @@
             filePath = "MorseCode/Home.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "269"
-            endingLineNumber = "269"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
             landmarkName = "morseCode()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DB17895D-3901-4A7E-943B-B8358CAACA26 - 8830dc713f282822"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swift.String.morseCode() -&gt; Swift.String"
+                  moduleName = "MorseCode"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/josephmasson/Documents/GitHub/MorseCode/MorseCode/MorseCode/Home.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "275"
+                  endingLineNumber = "275"
+                  offsetFromSymbolStart = "3492">
+               </Location>
+               <Location
+                  uuid = "DB17895D-3901-4A7E-943B-B8358CAACA26 - 8830dc713f282822"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swift.String.morseCode() -&gt; Swift.String"
+                  moduleName = "MorseCode"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/josephmasson/Documents/GitHub/MorseCode/MorseCode/MorseCode/Home.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "275"
+                  endingLineNumber = "275"
+                  offsetFromSymbolStart = "3316">
+               </Location>
+               <Location
+                  uuid = "DB17895D-3901-4A7E-943B-B8358CAACA26 - 37144b1d507cdf03"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swift.String.morseCode() -&gt; Swift.String"
+                  moduleName = "Morse Code"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/josephmasson/Documents/GitHub/MorseCode/MorseCode/MorseCode/Home.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "275"
+                  endingLineNumber = "275"
+                  offsetFromSymbolStart = "3316">
+               </Location>
+               <Location
+                  uuid = "DB17895D-3901-4A7E-943B-B8358CAACA26 - 2d42d39dd65bce99"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swift.String.morseCode() -&gt; Swift.String"
+                  moduleName = "Morse Torch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/josephmasson/Documents/GitHub/MorseCode/MorseCode/MorseCode/Home.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "275"
+                  endingLineNumber = "275"
+                  offsetFromSymbolStart = "3316">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
