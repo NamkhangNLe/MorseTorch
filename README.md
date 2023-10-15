@@ -33,9 +33,10 @@ Harness the power of computer vision to decode Morse code from visual signals. S
 
 1. Enter text in the "Text to Morse" section.
 2. Tap "Translate" to convert the text into Morse code.
-3. Toggle the flashlight option to visually transmit Morse code.
-4. For Morse-to-Text conversion, switch to the "Morse to Text" section.
-5. Use the computer vision functionality to decode Morse code from visual signals.
+3. Aim your device where you want to communicate and watch the magic happen.
+5. For Morse-to-Text conversion, switch to the "Morse to Text" section.
+6. Choose between recording a new video or uploading one you have made in the past.
+7. In a few seconds, your translation will be available for viewing.
 
 ## Contributing
 
