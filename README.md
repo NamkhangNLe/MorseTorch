@@ -1,9 +1,9 @@
-# Morse Torch ![32](https://github.com/NamkhangNLe/MorseCode/assets/76028202/ae1dc7fb-5945-444b-88d4-d3f342049357)
+# ![32](https://github.com/NamkhangNLe/MorseCode/assets/76028202/ae1dc7fb-5945-444b-88d4-d3f342049357) Morse Torch
 Morse Torch is a Swift-based iOS application designed to provide essential Morse code communication tools. Using advanced computer vision technology and state-of-the-art language processing, our app allows users to seamlessly communicate in Morse code. Whether you need to transmit messages in challenging situations or simply want to explore the world of Morse code, Morse Torch has you covered.
 
-![image](https://github.com/NamkhangNLe/MorseCode/assets/76028202/76573c93-2574-4b3e-960c-4e9770a2dcc1)
+![Untitled presentation-2](https://github.com/NamkhangNLe/MorseCode/assets/122403630/5263cae4-8011-41e5-b0d4-355f994ff1c7)
 
-# Features
+# ![32](https://github.com/NamkhangNLe/MorseCode/assets/76028202/ae1dc7fb-5945-444b-88d4-d3f342049357) Features
 
 ### Text-to-Morse Translator
 Effortlessly convert your text messages into Morse code. Morse Torch ensures accurate translation for effective communication.
@@ -14,7 +14,7 @@ Use our built-in flashlight capabilities to transmit Morse code signals visually
 ### Morse Code-to-Text Converter
 Harness the power of computer vision to decode Morse code from visual signals. Simply point your device's camera at the Morse code, and Morse Torch will translate it into readable text.
 
-## Getting Started
+## ![32](https://github.com/NamkhangNLe/MorseCode/assets/76028202/ae1dc7fb-5945-444b-88d4-d3f342049357) Getting Started
 
 1. **Clone the Repository**
     ```bash
@@ -30,7 +30,7 @@ Harness the power of computer vision to decode Morse code from visual signals. S
 3. **Build and Run**
     Press `Cmd + R` to build and run the application on your preferred iOS simulator or device.
 
-## Usage
+## ![32](https://github.com/NamkhangNLe/MorseCode/assets/76028202/ae1dc7fb-5945-444b-88d4-d3f342049357) Usage
 
 1. Enter text in the "Text to Morse" section.
 2. Tap "Translate" to convert the text into Morse code.
@@ -56,15 +56,15 @@ No bells, no whistles. A 911 call for when no one answers.
 
 ![image](https://github.com/NamkhangNLe/MorseCode/assets/76028202/d3fc0ee2-f538-4005-b99c-34a06ac9ca5c)
 
-## Contributing
+## ![32](https://github.com/NamkhangNLe/MorseCode/assets/76028202/ae1dc7fb-5945-444b-88d4-d3f342049357) Contributing
 
 We welcome contributions! Feel free to submit bug reports, feature requests, or pull requests. Please adhere to the [code of conduct](CODE_OF_CONDUCT.md).
 
-## License
+## ![32](https://github.com/NamkhangNLe/MorseCode/assets/76028202/ae1dc7fb-5945-444b-88d4-d3f342049357) License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
+## ![32](https://github.com/NamkhangNLe/MorseCode/assets/76028202/ae1dc7fb-5945-444b-88d4-d3f342049357) Acknowledgments
 
 - Inspired by the timeless utility of Morse code in communication.
 
