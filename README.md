@@ -1,5 +1,4 @@
-![16](https://github.com/NamkhangNLe/MorseCode/assets/76028202/342aa610-a913-4d84-90ee-15e9a77daba0) 
-# Morse Torch 
+# Morse Torch ![16](https://github.com/NamkhangNLe/MorseCode/assets/76028202/342aa610-a913-4d84-90ee-15e9a77daba0) 
 Morse Torch is a Swift-based iOS application designed to provide essential Morse code communication tools. Using advanced computer vision technology and state-of-the-art language processing, our app allows users to seamlessly communicate in Morse code. Whether you need to transmit messages in challenging situations or simply want to explore the world of Morse code, Morse Torch has you covered.
 
 ## Features
