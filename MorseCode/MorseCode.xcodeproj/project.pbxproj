@@ -43,7 +43,7 @@
 		B5216D032ADA26DC00BCAD0D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B5216D052ADA26DE00BCAD0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5216D082ADA26DE00BCAD0D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B5216D0F2ADA2A5900BCAD0D /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		B5216D0F2ADA2A5900BCAD0D /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B59E31162ADB7B9F00E6A4C8 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		B59E31182ADB802E00E6A4C8 /* IMG_7605.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = IMG_7605.mov; sourceTree = "<group>"; };
 /* End PBXFileReference section */

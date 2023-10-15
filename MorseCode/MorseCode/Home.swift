@@ -271,6 +271,62 @@ struct Translate: View{
             return morseCode
         }
     }
+    extension String {
+        func fromMorseCode() -> String {
+            let morseCodeDictionary = [
+                ".-": "a",
+                "-...": "b",
+                "-.-.": "c",
+                "-..": "d",
+                ".": "e",
+                "..-.": "f",
+                "--.": "g",
+                "....": "h",
+                "..": "i",
+                ".---": "j",
+                "-.-": "k",
+                ".-..": "l",
+                "--": "m",
+                "-.": "n",
+                "---": "o",
+                ".--.": "p",
+                "--.-": "q",
+                ".-.": "r",
+                "...": "s",
+                "-": "t",
+                "..-": "u",
+                "...-": "v",
+                ".--": "w",
+                "-..-": "x",
+                "-.--": "y",
+                "--..": "z",
+                ".----": "1",
+                "..---": "2",
+                "...--": "3",
+                "....-": "4",
+                ".....": "5",
+                "-....": "6",
+                "--...": "7",
+                "---..": "8",
+                "----.": "9",
+                "-----": "0",
+                "/": " "
+            ]
+            
+            var result = ""
+            let words = self.split(separator: "/")
+            for word in words {
+                let letters = word.split(separator: " ")
+                for letter in letters {
+                    if let character = morseCodeDictionary[String(letter)] {
+                        result += character
+                    }
+                }
+                result += " "
+            }
+            return result
+        }
+    }
     
     
     struct Display: View {
