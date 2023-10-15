@@ -7,7 +7,7 @@ Morse Torch is a Swift-based iOS application designed to provide essential Morse
 Effortlessly convert your text messages into Morse code. Morse Torch ensures accurate translation for effective communication.
 
 ### Flashlight Flashing
-Activate the built-in flashlight to transmit Morse code signals visually. This feature is particularly useful in low-light conditions or emergencies.
+Use our built-in flashlight capabilities to transmit Morse code signals visually. This feature is particularly useful in low-light conditions or emergencies.
 
 ### Morse Code-to-Text Converter
 Harness the power of computer vision to decode Morse code from visual signals. Simply point your device's camera at the Morse code, and Morse Torch will translate it into readable text.
@@ -36,6 +36,10 @@ Harness the power of computer vision to decode Morse code from visual signals. S
 5. For Morse-to-Text conversion, switch to the "Morse to Text" section.
 6. Choose between recording a new video or uploading one you have made in the past.
 7. In a few seconds, your translation will be available for viewing.
+
+## In Action
+![image](https://github.com/NamkhangNLe/MorseCode/assets/76028202/64cc3a40-aa02-4bf5-9991-801cd3be96bf)
+Use your phone flashlight to reach first responders
 
 ## Contributing
 
