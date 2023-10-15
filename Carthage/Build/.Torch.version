@@ -1,0 +1,28 @@
+{
+  "commitish" : "0.2.0",
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "iOS" : [
+    {
+      "swiftToolchainVersion" : "5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)",
+      "container" : "Torch.xcframework",
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "hash" : "0a3e7abc530987637b410e1ebaf0769a6f26efa04984e5b9acd1ec73fe545700",
+      "name" : "Torch"
+    },
+    {
+      "hash" : "03985c6a4020643d20e6231f1e29837e878e84ac24a9e200efddcec55550e486",
+      "name" : "Torch",
+      "container" : "Torch.xcframework",
+      "swiftToolchainVersion" : "5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)",
+      "identifier" : "ios-arm64"
+    }
+  ],
+  "Mac" : [
+
+  ]
+}

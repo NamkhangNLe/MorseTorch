@@ -114,7 +114,7 @@ struct Home: View {
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     })
-                    Text("-.. . ...- . .-.. --- .--. . -.. / ..-. --- .-. / .... .- -.-. -.- --. - -..-")
+                    Text("-.. . ...- . .-.. --- .--. . -..  ..-. --- .-.  .... .- -.-. -.- --. - -..-")
                         .frame(width: 300, height: 20)
                         .scaledToFit()
                         .font(.system(size: 15))

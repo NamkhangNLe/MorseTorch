@@ -1,0 +1,23 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/josephmasson/Library/Caches/org.carthage.CarthageKit/DerivedData/15.0_15A240d/Torch/0.2.0/Build/Intermediates.noindex/ArchiveIntermediates/Torch/BuildProductsPath/Release-iphoneos/Torch.framework/Torch'
+relocations:
+  - { offsetInCU: 0x34, offset: 0x6D856, size: 0x8, addend: 0x0, symName: _TorchVersionString, symObjAddr: 0x0, symBinAddr: 0xAD60, symSize: 0x0 }
+  - { offsetInCU: 0x69, offset: 0x6D88B, size: 0x8, addend: 0x0, symName: _TorchVersionNumber, symObjAddr: 0x28, symBinAddr: 0xAD88, symSize: 0x0 }
+  - { offsetInCU: 0x2B, offset: 0x6D8CC, size: 0x8, addend: 0x0, symName: '_$s5TorchAAC12sharedDevice33_ECFBFB970EA434CFBEC8107564249AB1LL_WZ', symObjAddr: 0x0, symBinAddr: 0x8000, symSize: 0xC }
+  - { offsetInCU: 0x4F, offset: 0x6D8F0, size: 0x8, addend: 0x0, symName: '_$s5TorchAAC12sharedDevice33_ECFBFB970EA434CFBEC8107564249AB1LLSo09AVCaptureC0CSgvpZ.0', symObjAddr: 0x5110, symBinAddr: 0xC830, symSize: 0x0 }
+  - { offsetInCU: 0x69, offset: 0x6D90A, size: 0x8, addend: 0x0, symName: '_$s5TorchAAC12currentLevel33_ECFBFB970EA434CFBEC8107564249AB1LLSfvpZ.0', symObjAddr: 0x5118, symBinAddr: 0xC838, symSize: 0x0 }
+  - { offsetInCU: 0x77, offset: 0x6D918, size: 0x8, addend: 0x0, symName: '_$s5TorchAAC12sharedDevice33_ECFBFB970EA434CFBEC8107564249AB1LL_WZ', symObjAddr: 0x0, symBinAddr: 0x8000, symSize: 0xC }
+  - { offsetInCU: 0x108, offset: 0x6D9A9, size: 0x8, addend: 0x0, symName: '_$s5TorchAAC11isAvailableSbyFZ', symObjAddr: 0xC, symBinAddr: 0x800C, symSize: 0xC4 }
+  - { offsetInCU: 0x167, offset: 0x6DA08, size: 0x8, addend: 0x0, symName: '_$s5TorchAAC03setA02toySf_tFZ', symObjAddr: 0xD0, symBinAddr: 0x80D0, symSize: 0x4 }
+  - { offsetInCU: 0x220, offset: 0x6DAC1, size: 0x8, addend: 0x0, symName: '_$s5TorchAAC03setA02to8durationySf_SdtFZ', symObjAddr: 0xD4, symBinAddr: 0x80D4, symSize: 0x1BC }
+  - { offsetInCU: 0x3E0, offset: 0x6DC81, size: 0x8, addend: 0x0, symName: '_$s5TorchAAC03setA02to8duration3gapySaySfG_S2dtFZ', symObjAddr: 0x290, symBinAddr: 0x8290, symSize: 0x4 }
+  - { offsetInCU: 0x403, offset: 0x6DCA4, size: 0x8, addend: 0x0, symName: '_$s5TorchAAC5blink_8duration3gapySi_S2dtFZ', symObjAddr: 0x294, symBinAddr: 0x8294, symSize: 0x8C }
+  - { offsetInCU: 0x4DE, offset: 0x6DD7F, size: 0x8, addend: 0x0, symName: '_$s5TorchAAC5flash5level8durationySf_SdtFZ', symObjAddr: 0x320, symBinAddr: 0x8320, symSize: 0xD4 }
+  - { offsetInCU: 0x57C, offset: 0x6DE1D, size: 0x8, addend: 0x0, symName: '_$s5TorchAACfd', symObjAddr: 0x3F4, symBinAddr: 0x83F4, symSize: 0x8 }
+  - { offsetInCU: 0x5AB, offset: 0x6DE4C, size: 0x8, addend: 0x0, symName: '_$s5TorchAACfD', symObjAddr: 0x3FC, symBinAddr: 0x83FC, symSize: 0x10 }
+  - { offsetInCU: 0x5DA, offset: 0x6DE7B, size: 0x8, addend: 0x0, symName: '_$s5TorchAAC03setA02toySf_tFZTf4nd_n', symObjAddr: 0x40C, symBinAddr: 0x840C, symSize: 0x280 }
+  - { offsetInCU: 0x724, offset: 0x6DFC5, size: 0x8, addend: 0x0, symName: '_$s5TorchAAC03setA02to8duration3gapySaySfG_S2dtFZTf4nnnd_n', symObjAddr: 0x68C, symBinAddr: 0x868C, symSize: 0x228 }
+  - { offsetInCU: 0xA1B, offset: 0x6E2BC, size: 0x8, addend: 0x0, symName: '_$s5TorchAACMa', symObjAddr: 0x8B4, symBinAddr: 0x88B4, symSize: 0x20 }
+  - { offsetInCU: 0xA2F, offset: 0x6E2D0, size: 0x8, addend: 0x0, symName: ___swift_instantiateConcreteTypeFromMangledName, symObjAddr: 0x8D4, symBinAddr: 0x88D4, symSize: 0x40 }
+...

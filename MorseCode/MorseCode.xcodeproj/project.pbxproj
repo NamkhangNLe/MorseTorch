@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		91716B932ADA4154004223CA /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91716B922ADA4154004223CA /* ImagePicker.swift */; };
+		917520B52ADB8B9A00188A57 /* Torch.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917520B42ADB8B9A00188A57 /* Torch.xcframework */; };
+		917520B62ADB8B9A00188A57 /* Torch.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 917520B42ADB8B9A00188A57 /* Torch.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		91FD383B2ADB0B2E00F411CE /* VideoMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FD383A2ADB0B2E00F411CE /* VideoMod.swift */; };
 		B5216D022ADA26DC00BCAD0D /* MorseCodeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5216D012ADA26DC00BCAD0D /* MorseCodeApp.swift */; };
 		B5216D042ADA26DC00BCAD0D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5216D032ADA26DC00BCAD0D /* ContentView.swift */; };
@@ -18,8 +20,23 @@
 		B59E31192ADB802E00E6A4C8 /* IMG_7605.mov in Resources */ = {isa = PBXBuildFile; fileRef = B59E31182ADB802E00E6A4C8 /* IMG_7605.mov */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		917520B72ADB8B9A00188A57 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				917520B62ADB8B9A00188A57 /* Torch.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		91716B922ADA4154004223CA /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		917520B42ADB8B9A00188A57 /* Torch.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Torch.xcframework; path = MorseCode/Torch.xcframework; sourceTree = "<group>"; };
 		91FD383A2ADB0B2E00F411CE /* VideoMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoMod.swift; sourceTree = "<group>"; };
 		B5216CFE2ADA26DC00BCAD0D /* Morse Torch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Morse Torch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5216D012ADA26DC00BCAD0D /* MorseCodeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorseCodeApp.swift; sourceTree = "<group>"; };
@@ -36,17 +53,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				917520B52ADB8B9A00188A57 /* Torch.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		917520B32ADB8B9A00188A57 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				917520B42ADB8B9A00188A57 /* Torch.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B5216CF52ADA26DC00BCAD0D = {
 			isa = PBXGroup;
 			children = (
 				B5216D002ADA26DC00BCAD0D /* MorseCode */,
 				B5216CFF2ADA26DC00BCAD0D /* Products */,
+				917520B32ADB8B9A00188A57 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,6 +119,7 @@
 				B5216CFA2ADA26DC00BCAD0D /* Sources */,
 				B5216CFB2ADA26DC00BCAD0D /* Frameworks */,
 				B5216CFC2ADA26DC00BCAD0D /* Resources */,
+				917520B72ADB8B9A00188A57 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
