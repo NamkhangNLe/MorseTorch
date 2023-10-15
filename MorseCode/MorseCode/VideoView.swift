@@ -25,22 +25,14 @@ struct VideoView: View {
         }
     }
     
-    func tester() {
-//        let base = [1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1]
-//        let source = base.description
-//        var grouping = [source : [base]]
-//        
-//        pickLightSource(in: grouping)
+    // func tester() {
+    //     let base = [0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1 ,1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1 ,1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]
+    //     let source = base.description
+    //     let grouping = [source : [base]]
         
-        let vidArr = get3DVideoArray()
-        
-        for frame in vidArr {
-            for row in frame {
-                print(row)
-            }
-        }
-        
-    }
+    //     let (signal, dot, bar, short, mid, long) = pickLightSource(in: grouping)
+    //     let morseCode = translateToMC(signal: signal, dot: dot, bar: bar, short: short, mid: mid, long: long)
+    // }
 }
 
 #Preview {

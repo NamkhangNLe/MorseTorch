@@ -123,43 +123,274 @@ func stringToArr(strArr: String) -> [Int] {
     return results
 }
 
-func pickLightSource(in lightGroupings: [String : [[Int]]]) -> [Int] {
+func getDotBarDuration(freq: [Int : Int], largest: Int) -> (Double, Double) {
+    
+    var dot = 0.0
+    var bar = 0.0
+    var doneDot = false
+    
+    var total = 0.0
+    var count = 0.0
+    var started = false
+    
+    let leniancy = 1
+    var skips = 0
+    
+    
+    for i in 1...largest {
+        if freq.keys.contains(i) {
+            
+            started = true
+            total += Double(i * freq[i]!)
+            count += Double(freq[i]!)
+            skips = 0
+        
+        } else if (started) {
+            // count continuous skips only
+            skips += 1
+        }
+        
+        // calculate dot
+        if skips > leniancy{
+            
+            if doneDot {
+                break
+            }
+            
+    
+            dot = (total / count)
+            
+            // reset for bar
+            total = 0.0
+            count = 0.0
+            skips = 0
+            started = false
+            
+            //break next time
+            doneDot = true
+        }
+    }
+    
+    bar = (total / count)
+    
+    return (dot, bar)
+}
+
+func pickLightSource(in lightGroupings: [String : [[Int]]]) -> ([Int], Double, Double, Double, Double, Double) {
     var lightSignal: [Int] = []
-    var keys = lightGroupings.keys
     
-    var idk = [1, 2, 3]
+    let keys = lightGroupings.keys
     
+    var bestRelativeScore = 0.0
+    
+    var bestRelativeDot = 0.0
+    var bestRelativeBar = 0.0
+    
+    var bestShortPause = 0.0
+    var bestLongPause = 0.0
+    var bestMidPause = 0.0
+    
+            
     for key in keys {
         
-        var freq : [Int : Int] = [:]
-        var mode = stringToArr(strArr: key)
+        var onfreq : [Int : Int] = [:]
+        let mode = stringToArr(strArr: key)
         
-        var cont = 0
+        var contOn = 0
+        var largestOn = 0
         
+        var offfreq : [Int : Int] = [:]
+        var contOff = 0
+        var largestOff = 0
+        
+        // get freq list
         
         for lightSig in mode {
             if (lightSig == 1) {
-                cont += 1
-            } else if (cont > 1) {
-                if freq.keys.contains(cont) {
-                    freq[cont]! += 1
+                contOn += 1
+            } else if (contOn > 1) {
+                if onfreq.keys.contains(contOn) {
+                    onfreq[contOn]! += 1
                 } else {
-                    freq[cont] = 1
+                    onfreq[contOn] = 1
                 }
-                cont = 0
+                largestOn = max(largestOn, contOn)
+                contOn = 0
+            }
+            
+            if (lightSig == 0) {
+                contOff += 1
+            } else if (contOff > 1) {
+                if offfreq.keys.contains(contOff) {
+                    offfreq[contOff]! += 1
+                } else {
+                    offfreq[contOff] = 1
+                }
+                largestOff = max(largestOff, contOff)
+                contOff = 0
+            }
+            
+        }
+        
+        // add last key if end in 1
+        
+        if (contOn > 1) {
+            if onfreq.keys.contains(contOn) {
+                onfreq[contOn]! += 1
+            } else {
+                onfreq[contOn] = 1
             }
         }
         
-        if (cont > 1) {
-            if freq.keys.contains(cont) {
-                freq[cont]! += 1
+        if (contOff > 1) {
+            if offfreq.keys.contains(contOff) {
+                offfreq[contOff]! += 1
             } else {
-                freq[cont] = 1
+                offfreq[contOff] = 1
             }
         }
+                
+        // calculate the dot and bar
+        let (dot, bar) = getDotBarDuration(freq: onfreq, largest: largestOn)
+        
+        // calculate pauses
+        let (short, mid, long) = getPauses(freq: offfreq, largest: largestOff)
+        // got the bar and dot frequency
+        
+        let relative = bar / dot
+        
+        if abs(relative - 3) < abs(bestRelativeScore - 3) {
+            bestRelativeScore = relative
+            bestRelativeBar = bar
+            bestRelativeDot = dot
+            lightSignal = mode
+            bestShortPause = short
+            bestLongPause = long
+            bestMidPause = mid
+        }
+    }
+
+    return (lightSignal, bestRelativeDot,bestRelativeBar, bestShortPause, bestMidPause, bestLongPause)
+}
+
+func getPauses(freq: [Int : Int], largest: Int) -> (Double, Double, Double) {
+    
+    var short = 0.0
+    var long = 0.0
+    var mid = 0.0
+
+    var shortDone = false
+    var midDone = false
+    
+    var total = 0.0
+    var count = 0.0
+    var started = false
+    
+    let leniancy = 1
+    var skips = 0
+    
+    for i in 1...largest {
+        if freq.keys.contains(i) {
             
+            started = true
+            total += Double(i * freq[i]!)
+            count += Double(freq[i]!)
+            skips = 0
+        
+        } else if (started) {
+            // count continuous skips only
+            skips += 1
+        }
+        
+        // calculate dot
+        if skips > leniancy{
+            
+            if midDone {
+                break
+            }
+            
+            if shortDone {
+                
+                mid = (total / count)
+                
+                // reset for bar
+                total = 0.0
+                count = 0.0
+                skips = 0
+                started = false
+                
+                //break next time
+                midDone = true
+                
+            }
+            
+            short = (total / count)
+            
+            // reset for bar
+            total = 0.0
+            count = 0.0
+            skips = 0
+            started = false
+            
+            //break next time
+            shortDone = true
+            
+
+        }
     }
     
-    
-    return lightSignal
+    long = (total / count)
+        
+    return (short, mid, long)
 }
+
+func translateToMC(signal:[Int], dot: Double, bar: Double, short: Double, mid: Double, long: Double) -> String {
+    
+    var morseCode = ""
+    
+    var contON = 0.0
+    var contOFF = 0.0
+    
+    for sig in signal {
+        
+        if (sig == 1) {
+            
+            if ((mid - 1) ... (mid + 1)  ~= contOFF) {
+                morseCode += " "
+            } else if ((long - 1) ... (long + 1)  ~= contOFF) {
+                morseCode += " / "
+            }
+            
+            contON += 1
+            contOFF = 0
+            
+        } else {
+            
+            if ((dot - 1) ... (dot + 1)  ~= contON) {
+                morseCode += "."
+            } else if ((bar - 1) ... (bar + 1)  ~= contON) {
+                morseCode += "-"
+            }
+            
+            contOFF += 1
+            contON = 0
+        }
+        
+    }
+    
+    return morseCode
+}
+
+func tester() -> String {
+        let base = [0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1 ,1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1 ,1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]
+        let source = base.description
+        let grouping = [source : [base]]
+        
+        let (signal, dot, bar, short, mid, long) = pickLightSource(in: grouping)
+        let morseCode = translateToMC(signal: signal, dot: dot, bar: bar, short: short, mid: mid, long: long)
+
+        return morseCode
+    }
+
+
+
