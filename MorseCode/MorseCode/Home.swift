@@ -199,6 +199,7 @@ struct Translate: View{
                     }
                     
                     Button {
+                        flashLightOff()
                         goBack.toggle()
                     } label: {
                         Text("Back")
@@ -273,7 +274,19 @@ struct Translate: View{
                 }
             }
         }
+    
+    func flashLightOff() {
+        let device = AVCaptureDevice.default(for: AVMediaType.video)
+        if (device != nil) {
+            do {
+                try device!.lockForConfiguration()
+                device!.torchMode = AVCaptureDevice.TorchMode.off
+            } catch {
+                print(error)
+            }
+        }
     }
+}
     
     extension String {
         func morseCode() -> String {
