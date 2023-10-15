@@ -14,7 +14,7 @@ import AVFoundation
 
 func get3DVideoArray() -> [[[Int]]] {
     
-    guard let videoURL = Bundle.main.url(forResource: "IMG_7605", withExtension: "mov")
+    guard let videoURL = Bundle.main.url(forResource: "IMG_2954", withExtension: "mov")
     else {
         print("Video file not found.")
         return []
@@ -74,11 +74,12 @@ func grayscalePixelArray(fromImageNamed imageName: UIImage?) -> [[Int]]? {
             if let pixelData = context.data {
                 let offset = 1 * (width * y + x)
                 let pixelValue = pixelData.load(fromByteOffset: offset, as: UInt8.self)
-                if pixelValue > 200 {
+                if pixelValue > 120 {
                     row.append(1)
                 } else {
                     row.append(0)
                 }
+//                row.append(Int(pixelValue))
             }
         }
         grayscalePixels.append(row)
@@ -133,7 +134,7 @@ func getDotBarDuration(freq: [Int : Int], largest: Int) -> (Double, Double) {
     var count = 0.0
     var started = false
     
-    let leniancy = 1
+    let leniancy = 5
     var skips = 0
     
     
@@ -176,13 +177,13 @@ func getDotBarDuration(freq: [Int : Int], largest: Int) -> (Double, Double) {
     return (dot, bar)
 }
 
-func pickLightSource(in lightGroupings: [String : [[Int]]]) -> ([Int], Double, Double, Double, Double, Double) {
-    var lightSignal: [Int] = []
+func pickLightSource(in lightGroupings: [[[Int]]]) -> ([Int], Double, Double, Double, Double, Double) {
     
-    let keys = lightGroupings.keys
+    var possibleWords = [String]()
+    
+    var bestMCencoding = [Int]()
     
     var bestRelativeScore = 0.0
-    
     var bestRelativeDot = 0.0
     var bestRelativeBar = 0.0
     
@@ -190,22 +191,29 @@ func pickLightSource(in lightGroupings: [String : [[Int]]]) -> ([Int], Double, D
     var bestLongPause = 0.0
     var bestMidPause = 0.0
     
-            
-    for key in keys {
+    var coordrow = 0
+    var coordcol = 0
+    
+    
+    var onfreq : [Int : Int] = [:]
+    var contOn = 0
+    var largestOn = 0
         
-        var onfreq : [Int : Int] = [:]
-        let mode = stringToArr(strArr: key)
+    var offfreq : [Int : Int] = [:]
+    var contOff = 0
+    var largestOff = 0
+    
+    
         
-        var contOn = 0
-        var largestOn = 0
+    // get freq list
+    
+    for pix in lightGroupings {
         
-        var offfreq : [Int : Int] = [:]
-        var contOff = 0
-        var largestOff = 0
+        let row = pix[0][0]
+        let col = pix[1][0]
+        let lighting = pix[2]
         
-        // get freq list
-        
-        for lightSig in mode {
+        for lightSig in lighting {
             if (lightSig == 1) {
                 contOn += 1
             } else if (contOn > 1) {
@@ -249,7 +257,10 @@ func pickLightSource(in lightGroupings: [String : [[Int]]]) -> ([Int], Double, D
                 offfreq[contOff] = 1
             }
         }
-                
+        
+//        print(onfreq)
+//        print(offfreq)
+        
         // calculate the dot and bar
         let (dot, bar) = getDotBarDuration(freq: onfreq, largest: largestOn)
         
@@ -258,19 +269,27 @@ func pickLightSource(in lightGroupings: [String : [[Int]]]) -> ([Int], Double, D
         // got the bar and dot frequency
         
         let relative = bar / dot
-        
+        //        print(row, col)
+//        print(bestMCencoding, bestRelativeDot,bestRelativeBar, bestShortPause, bestMidPause, bestLongPause)
+                
         if abs(relative - 3) < abs(bestRelativeScore - 3) {
             bestRelativeScore = relative
             bestRelativeBar = bar
             bestRelativeDot = dot
-            lightSignal = mode
+            bestMCencoding = lighting
             bestShortPause = short
             bestLongPause = long
             bestMidPause = mid
+            coordrow = row
+            coordcol = col
         }
     }
-
-    return (lightSignal, bestRelativeDot,bestRelativeBar, bestShortPause, bestMidPause, bestLongPause)
+    
+//    print(coordrow, coordcol)
+//    print(bestMCencoding, bestRelativeDot,bestRelativeBar, bestShortPause, bestMidPause, bestLongPause)
+    
+//    return (lightGroupings, dot, bar, short, mid, long)
+    return (bestMCencoding, bestRelativeDot,bestRelativeBar, bestShortPause, bestMidPause, bestLongPause)
 }
 
 func getPauses(freq: [Int : Int], largest: Int) -> (Double, Double, Double) {
@@ -286,7 +305,7 @@ func getPauses(freq: [Int : Int], largest: Int) -> (Double, Double, Double) {
     var count = 0.0
     var started = false
     
-    let leniancy = 1
+    let leniancy = 2
     var skips = 0
     
     for i in 1...largest {
@@ -345,6 +364,7 @@ func getPauses(freq: [Int : Int], largest: Int) -> (Double, Double, Double) {
 }
 
 func translateToMC(signal:[Int], dot: Double, bar: Double, short: Double, mid: Double, long: Double) -> String {
+
     
     var morseCode = ""
     
@@ -355,9 +375,9 @@ func translateToMC(signal:[Int], dot: Double, bar: Double, short: Double, mid: D
         
         if (sig == 1) {
             
-            if ((mid - 1) ... (mid + 1)  ~= contOFF) {
+            if ((mid - 1) ... (long -  5)  ~= contOFF) {
                 morseCode += " "
-            } else if ((long - 1) ... (long + 1)  ~= contOFF) {
+            } else if ((long - 3) ... (long + 3)  ~= contOFF) {
                 morseCode += " / "
             }
             
@@ -366,9 +386,9 @@ func translateToMC(signal:[Int], dot: Double, bar: Double, short: Double, mid: D
             
         } else {
             
-            if ((dot - 1) ... (dot + 1)  ~= contON) {
+            if ((dot - 3) ... (dot + 8)  ~= contON) {
                 morseCode += "."
-            } else if ((bar - 1) ... (bar + 1)  ~= contON) {
+            } else if ((bar - ((bar + dot) / 2)) ... (bar + bar + bar)  ~= contON) {
                 morseCode += "-"
             }
             
@@ -378,19 +398,24 @@ func translateToMC(signal:[Int], dot: Double, bar: Double, short: Double, mid: D
         
     }
     
+    print(morseCode)
+    
     return morseCode
 }
 
 func tester() -> String {
-        let base = [0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1 ,1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1 ,1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]
-        let source = base.description
-        let grouping = [source : [base]]
+     let tempsignal = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    
+    let arr = get3DVideoArray()
+    let MSarr = makeModemap(in: arr)
+    let base = MSarr
         
-        let (signal, dot, bar, short, mid, long) = pickLightSource(in: grouping)
-        let morseCode = translateToMC(signal: signal, dot: dot, bar: bar, short: short, mid: mid, long: long)
+    let (signal, dot, bar, short, mid, long) = pickLightSource(in: base)
+    print(signal, dot, bar, short, mid, long)
+    let morseCode = translateToMC(signal: tempsignal, dot: dot, bar: bar, short: short, mid: mid, long: long)
 
-        return morseCode
-    }
+    return morseCode
+}
 
 
 
