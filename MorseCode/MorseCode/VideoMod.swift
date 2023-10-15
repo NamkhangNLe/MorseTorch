@@ -12,13 +12,16 @@ import CoreGraphics
 import AVFoundation
 
 
-func get3DVideoArray(url: String) -> [[[Int]]] {
+func get3DVideoArray(x: String) -> [[[Int]]] {
     
-    guard let videoURL = Bundle.main.url(forResource: url, withExtension: "mov")
+    
+    guard let videoURL = Bundle.main.url(forResource: x, withExtension: "mov")
+        
     else {
         print("Video file not found.")
         return []
     }
+
     
     let frames = extract2(from: videoURL)
     var framesArray : [[[Int]]] = []

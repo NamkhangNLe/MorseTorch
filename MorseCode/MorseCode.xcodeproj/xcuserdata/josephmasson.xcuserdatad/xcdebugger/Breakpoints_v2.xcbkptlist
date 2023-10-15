@@ -7,17 +7,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E4B7B8A8-E9A1-43C0-9732-5A05A05F19E2"
+            uuid = "F7A34F93-202D-4F61-96AA-B8B5ACC4E880"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MorseCode/ImagePicker.swift"
+            filePath = "MorseCode/VideoMod.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
-            landmarkType = "7">
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "get3DVideoArray(x:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "F7A34F93-202D-4F61-96AA-B8B5ACC4E880 - 31dd5d814f604064"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Morse_Torch.get3DVideoArray(x: Swift.String) -&gt; Swift.Array&lt;Swift.Array&lt;Swift.Array&lt;Swift.Int&gt;&gt;&gt;"
+                  moduleName = "Morse Torch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/josephmasson/Documents/GitHub/MorseCode/MorseCode/MorseCode/VideoMod.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "1400">
+               </Location>
+               <Location
+                  uuid = "F7A34F93-202D-4F61-96AA-B8B5ACC4E880 - 31dd5d814f604385"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Morse_Torch.get3DVideoArray(x: Swift.String) -&gt; Swift.Array&lt;Swift.Array&lt;Swift.Array&lt;Swift.Int&gt;&gt;&gt;"
+                  moduleName = "Morse Torch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/josephmasson/Documents/GitHub/MorseCode/MorseCode/MorseCode/VideoMod.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "292">
+               </Location>
+               <Location
+                  uuid = "F7A34F93-202D-4F61-96AA-B8B5ACC4E880 - 31dd5d814f604385"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Morse_Torch.get3DVideoArray(x: Swift.String) -&gt; Swift.Array&lt;Swift.Array&lt;Swift.Array&lt;Swift.Int&gt;&gt;&gt;"
+                  moduleName = "Morse Torch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/josephmasson/Documents/GitHub/MorseCode/MorseCode/MorseCode/VideoMod.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "232">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
