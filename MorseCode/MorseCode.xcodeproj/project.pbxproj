@@ -20,6 +20,7 @@
 		B5216D102ADA2A5900BCAD0D /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5216D0F2ADA2A5900BCAD0D /* Home.swift */; };
 		B59E31172ADB7B9F00E6A4C8 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59E31162ADB7B9F00E6A4C8 /* VideoView.swift */; };
 		B59E31192ADB802E00E6A4C8 /* IMG_7605.mov in Resources */ = {isa = PBXBuildFile; fileRef = B59E31182ADB802E00E6A4C8 /* IMG_7605.mov */; };
+		B59E311B2ADBF39500E6A4C8 /* IMG_2954.mov in Resources */ = {isa = PBXBuildFile; fileRef = B59E311A2ADBF39500E6A4C8 /* IMG_2954.mov */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,6 +51,7 @@
 		B5216D0F2ADA2A5900BCAD0D /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		B59E31162ADB7B9F00E6A4C8 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		B59E31182ADB802E00E6A4C8 /* IMG_7605.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = IMG_7605.mov; sourceTree = "<group>"; };
+		B59E311A2ADBF39500E6A4C8 /* IMG_2954.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = IMG_2954.mov; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				B5216D072ADA26DE00BCAD0D /* Preview Content */,
 				B5216D0F2ADA2A5900BCAD0D /* Home.swift */,
 				91716B922ADA4154004223CA /* ImagePicker.swift */,
+				B59E311A2ADBF39500E6A4C8 /* IMG_2954.mov */,
 				B59E31182ADB802E00E6A4C8 /* IMG_7605.mov */,
 			);
 			path = MorseCode;
@@ -174,6 +177,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B59E311B2ADBF39500E6A4C8 /* IMG_2954.mov in Resources */,
 				B5216D092ADA26DE00BCAD0D /* Preview Assets.xcassets in Resources */,
 				B59E31192ADB802E00E6A4C8 /* IMG_7605.mov in Resources */,
 				B5216D062ADA26DE00BCAD0D /* Assets.xcassets in Resources */,

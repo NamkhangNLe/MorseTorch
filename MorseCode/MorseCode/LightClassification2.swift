@@ -36,21 +36,21 @@ func detectFlicker(in array3D: [[[Int]]]) -> [Int]? {
 //Take pixel history
 //Return array of history arrays, not every pixel gets added
 // Heuristic: numOnes/Length.
-func makeModemap(in array3D: [[[Int]]]) -> [Int] {
+func makeModemap(in array3D: [[[Int]]]) -> [[[Int]]] {
     
 
     let depth = array3D.count
     let rows = array3D[0].count
     let cols = array3D[0][0].count
-        
-    var modeMap = [[Int]]()
+            
+    var modeMap = [[[Int]]]()
     
     let minConstant = 0.3 // Is off too often
-    let maxConstant = 0.7 // Is on too often
+    let maxConstant = 0.8 // Is on too often
     
     
-    for row in 0..<rows {
-        for col in 0..<cols {
+    for row in 120..<170 {
+        for col in 150..<250 {
             var numOnes = 0
             var pixelHistory = [Int]()
             
@@ -64,14 +64,13 @@ func makeModemap(in array3D: [[[Int]]]) -> [Int] {
             let ratio = Double(numOnes)/Double(depth)
             
             if (ratio > minConstant && ratio < maxConstant) {
-                modeMap.append(pixelHistory)
+                modeMap.append([[row], [col], pixelHistory])
             }
             
         }
     }
-    let morseCodeArr = getAvg(in: modeMap)
     
-    return morseCodeArr
+    return modeMap
 }
 
 

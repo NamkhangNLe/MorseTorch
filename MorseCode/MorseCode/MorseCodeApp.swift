@@ -12,7 +12,6 @@ struct MorseCodeApp: App {
     var body: some Scene {
         WindowGroup {
             AppContentView()
-
         }
     }
 }
