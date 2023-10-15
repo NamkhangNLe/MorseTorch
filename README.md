@@ -39,15 +39,19 @@ Harness the power of computer vision to decode Morse code from visual signals. S
 
 ## In Action
 Use your phone flashlight to reach first responders.
+
 ![image](https://github.com/NamkhangNLe/MorseCode/assets/76028202/64cc3a40-aa02-4bf5-9991-801cd3be96bf)
 
 Record video and upload to Morse Torch later.
+
 ![image](https://github.com/NamkhangNLe/MorseCode/assets/76028202/cbf485b2-8dcb-452a-af8a-77c748e3e94e)
 
 Morse Touch can identify flashing lights and translate code for you.
+
 ![image](https://github.com/NamkhangNLe/MorseCode/assets/76028202/769f9d41-ab7c-498a-b971-71dbf0fe1325)
 
 No bells, no whistles. A 911 call for when no one answers.
+
 ![image](https://github.com/NamkhangNLe/MorseCode/assets/76028202/d3fc0ee2-f538-4005-b99c-34a06ac9ca5c)
 
 ## Contributing
