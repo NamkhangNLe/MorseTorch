@@ -140,6 +140,7 @@ struct Translate: View{
     @State var torchIsOn = false
     @State var buttonTapped = false
     @State private var goBack = false
+
     
     var body: some View {
         GeometryReader { geo in
@@ -167,16 +168,32 @@ struct Translate: View{
                         UserDefaults.standard.set(text, forKey: "textToTranslate")
                         text = text.morseCode()
                         let code = Array(text)
-                        for char in code {
-                            if(char == ".") {
-                                flashLightDot()
-                            } else if (char == "-") {
-                                flashLightDash()
-                            } else {
-                                //whitespace call - extra delay
-                                flashLightSpace()
+                        for element in code{
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                if (!torchIsOn) {
+                                    if(element == ".") {
+                                        flashLightOn()
+                                        print("turned on")
+                                        flashLightOff()
+                                        flashLightOff()
+                                        flashLightOff()
+                                        print("turned off")
+                                        flashLightOn()
+                                        print("turned on")
+                                    } else if (element == "-") {
+                                        print(element)
+                                        // flashLightDash()
+                                    } else {                                    
+                                        //whitespace call - extra delay
+                                        // flashLightSpace()
+                                    }
+                                    torchIsOn = false
+                                }
+                                    
                             }
+                            
                         }
+                        
                         
                         buttonTapped = true
                     }, label: {
@@ -201,6 +218,7 @@ struct Translate: View{
                     Button {
                         flashLightOff()
                         goBack.toggle()
+                        flashLightOff()
                     } label: {
                         Text("Back")
                             .frame(width: 100, height: 50)
@@ -216,39 +234,52 @@ struct Translate: View{
         }
     }
         
+//        func flashLightDot() {
+//            let device = AVCaptureDevice.default(for: AVMediaType.video)
+//            if (device != nil) {
+//                do {
+//                    try device!.lockForConfiguration()
+//                    if torchIsOn {
+//                        device!.torchMode = AVCaptureDevice.TorchMode.off
+//                        torchIsOn = false
+//                    } else {
+//                        device!.torchMode = AVCaptureDevice.TorchMode.on
+//                        torchIsOn = true
+//                    }
+//                    device!.unlockForConfiguration()
+//                } catch {
+//                    print(error)
+//                }
+//            }
+//        }
+
         func flashLightDot() {
-            let flashDuration = 0.5
+            print("dot called")
             let device = AVCaptureDevice.default(for: AVMediaType.video)
             if (device != nil) {
                 do {
                     try device!.lockForConfiguration()
-                    if torchIsOn {
-                        device!.torchMode = AVCaptureDevice.TorchMode.off
-                        torchIsOn = false
-                    } else {
-                        device!.torchMode = AVCaptureDevice.TorchMode.on
-                        torchIsOn = true
+                    device!.torchMode = AVCaptureDevice.TorchMode.on
+                    torchIsOn.toggle()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                        flashLightOff()
                     }
-                    device!.unlockForConfiguration()
                 } catch {
                     print(error)
                 }
             }
         }
+        
 
         func flashLightDash() {
             let device = AVCaptureDevice.default(for: AVMediaType.video)
             if (device != nil) {
                 do {
                     try device!.lockForConfiguration()
-                    if torchIsOn {
-                        device!.torchMode = AVCaptureDevice.TorchMode.off
-                        torchIsOn = false
-                    } else {
-                        device!.torchMode = AVCaptureDevice.TorchMode.on
-                        torchIsOn = true
+                    device!.torchMode = AVCaptureDevice.TorchMode.on
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                        flashLightOff()
                     }
-                    device!.unlockForConfiguration()
                 } catch {
                     print(error)
                 }
@@ -260,15 +291,9 @@ struct Translate: View{
             let device = AVCaptureDevice.default(for: AVMediaType.video)
             if (device != nil) {
                 do {
-                    try device!.lockForConfiguration()
-                    if torchIsOn {
-                        device!.torchMode = AVCaptureDevice.TorchMode.off
-                        torchIsOn = false
-                    } else {
-                        device!.torchMode = AVCaptureDevice.TorchMode.on
-                        torchIsOn = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
+                        flashLightOff()
                     }
-                    device!.unlockForConfiguration()
                 } catch {
                     print(error)
                 }
@@ -286,6 +311,33 @@ struct Translate: View{
             }
         }
     }
+
+    func flashLightOn() {
+        let device = AVCaptureDevice.default(for: AVMediaType.video)
+        if (device != nil) {
+            do {
+                try device!.lockForConfiguration()
+                device!.torchMode = AVCaptureDevice.TorchMode.on
+                //torchIsOn.toggle()
+            } catch {
+                print(error)
+            }
+        }
+    }
+
+    func flashLightOff() {
+        let device = AVCaptureDevice.default(for: AVMediaType.video)
+        if (device != nil) {
+            do {
+                try device!.lockForConfiguration()
+                device!.torchMode = AVCaptureDevice.TorchMode.off
+                //torchIsOn.toggle()
+            } catch {
+                print(error)
+            }
+        }
+    }
+
 }
     
     extension String {
@@ -377,4 +429,3 @@ struct Translate: View{
                 }
             }
         }
-
