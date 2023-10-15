@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AVFoundation
+import Torch
 
 struct AppContentView: View {
     @State var videoSelected = false
@@ -169,32 +170,16 @@ struct Translate: View{
                         text = text.morseCode()
                         let code = Array(text)
                         for element in code{
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                if (!torchIsOn) {
-                                    if(element == ".") {
-                                        flashLightOn()
-                                        print("turned on")
-                                        flashLightOff()
-                                        flashLightOff()
-                                        flashLightOff()
-                                        print("turned off")
-                                        flashLightOn()
-                                        print("turned on")
-                                    } else if (element == "-") {
-                                        print(element)
-                                        // flashLightDash()
-                                    } else {                                    
-                                        //whitespace call - extra delay
-                                        // flashLightSpace()
-                                    }
-                                    torchIsOn = false
-                                }
-                                    
+                            if (element == ".") {
+                                Torch.setTorch(to: 0.5, duration: 0.5)
+                                Torch.setTorch(to:0, duration: 0.5)
+                            } else if (element == "-") {
+                                Torch.setTorch(to: 0.5, duration: 1.5)
+                                Torch.setTorch(to:0, duration: 0.5)
+                            } else {
+                                Torch.setTorch(to: 0, duration: 2)
                             }
-                            
                         }
-                        
-                        
                         buttonTapped = true
                     }, label: {
                         Text("Translate")
@@ -216,9 +201,9 @@ struct Translate: View{
                     }
                     
                     Button {
-                        flashLightOff()
+                        
                         goBack.toggle()
-                        flashLightOff()
+                        Torch.setTorch(to: 0)
                     } label: {
                         Text("Back")
                             .frame(width: 100, height: 50)
@@ -233,111 +218,6 @@ struct Translate: View{
             }
         }
     }
-        
-//        func flashLightDot() {
-//            let device = AVCaptureDevice.default(for: AVMediaType.video)
-//            if (device != nil) {
-//                do {
-//                    try device!.lockForConfiguration()
-//                    if torchIsOn {
-//                        device!.torchMode = AVCaptureDevice.TorchMode.off
-//                        torchIsOn = false
-//                    } else {
-//                        device!.torchMode = AVCaptureDevice.TorchMode.on
-//                        torchIsOn = true
-//                    }
-//                    device!.unlockForConfiguration()
-//                } catch {
-//                    print(error)
-//                }
-//            }
-//        }
-
-        func flashLightDot() {
-            print("dot called")
-            let device = AVCaptureDevice.default(for: AVMediaType.video)
-            if (device != nil) {
-                do {
-                    try device!.lockForConfiguration()
-                    device!.torchMode = AVCaptureDevice.TorchMode.on
-                    torchIsOn.toggle()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                        flashLightOff()
-                    }
-                } catch {
-                    print(error)
-                }
-            }
-        }
-        
-
-        func flashLightDash() {
-            let device = AVCaptureDevice.default(for: AVMediaType.video)
-            if (device != nil) {
-                do {
-                    try device!.lockForConfiguration()
-                    device!.torchMode = AVCaptureDevice.TorchMode.on
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                        flashLightOff()
-                    }
-                } catch {
-                    print(error)
-                }
-                
-            }
-        }
-
-        func flashLightSpace() {
-            let device = AVCaptureDevice.default(for: AVMediaType.video)
-            if (device != nil) {
-                do {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
-                        flashLightOff()
-                    }
-                } catch {
-                    print(error)
-                }
-            }
-        }
-    
-    func flashLightOff() {
-        let device = AVCaptureDevice.default(for: AVMediaType.video)
-        if (device != nil) {
-            do {
-                try device!.lockForConfiguration()
-                device!.torchMode = AVCaptureDevice.TorchMode.off
-            } catch {
-                print(error)
-            }
-        }
-    }
-
-    func flashLightOn() {
-        let device = AVCaptureDevice.default(for: AVMediaType.video)
-        if (device != nil) {
-            do {
-                try device!.lockForConfiguration()
-                device!.torchMode = AVCaptureDevice.TorchMode.on
-                //torchIsOn.toggle()
-            } catch {
-                print(error)
-            }
-        }
-    }
-
-    func flashLightOff() {
-        let device = AVCaptureDevice.default(for: AVMediaType.video)
-        if (device != nil) {
-            do {
-                try device!.lockForConfiguration()
-                device!.torchMode = AVCaptureDevice.TorchMode.off
-                //torchIsOn.toggle()
-            } catch {
-                print(error)
-            }
-        }
-    }
-
 }
     
     extension String {
