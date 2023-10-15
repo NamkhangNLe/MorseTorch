@@ -14,6 +14,7 @@
 		B5216D062ADA26DE00BCAD0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5216D052ADA26DE00BCAD0D /* Assets.xcassets */; };
 		B5216D092ADA26DE00BCAD0D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5216D082ADA26DE00BCAD0D /* Preview Assets.xcassets */; };
 		B5216D102ADA2A5900BCAD0D /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5216D0F2ADA2A5900BCAD0D /* Home.swift */; };
+		B59E31172ADB7B9F00E6A4C8 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59E31162ADB7B9F00E6A4C8 /* VideoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		B5216D052ADA26DE00BCAD0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5216D082ADA26DE00BCAD0D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B5216D0F2ADA2A5900BCAD0D /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		B59E31162ADB7B9F00E6A4C8 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			children = (
 				B5216D012ADA26DC00BCAD0D /* MorseCodeApp.swift */,
 				91FD383A2ADB0B2E00F411CE /* VideoMod.swift */,
+				B59E31162ADB7B9F00E6A4C8 /* VideoView.swift */,
 				B5216D032ADA26DC00BCAD0D /* ContentView.swift */,
 				B5216D052ADA26DE00BCAD0D /* Assets.xcassets */,
 				B5216D072ADA26DE00BCAD0D /* Preview Content */,
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B59E31172ADB7B9F00E6A4C8 /* VideoView.swift in Sources */,
 				91FD383B2ADB0B2E00F411CE /* VideoMod.swift in Sources */,
 				B5216D042ADA26DC00BCAD0D /* ContentView.swift in Sources */,
 				91716B932ADA4154004223CA /* ImagePicker.swift in Sources */,
