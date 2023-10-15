@@ -66,6 +66,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## ![32](https://github.com/NamkhangNLe/MorseCode/assets/76028202/ae1dc7fb-5945-444b-88d4-d3f342049357) Acknowledgments
 
+- Enormous thanks to the Hail Mary of the project truly, the Torch framework, available at https://github.com/cpageler93/Torch/tree/master
 - Inspired by the timeless utility of Morse code in communication.
-
+  
 **Morse Torch - Illuminate Communication in the Dark with Morse Code. Your Beacon in Emergencies.**
