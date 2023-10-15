@@ -265,7 +265,7 @@ struct Translate: View{
             var morseCode = ""
             for character in self.lowercased() {
                 if let code = morseCodeDictionary[String(character)] {
-                    morseCode += code + " "
+                    morseCode += code
                 }
             }
             return morseCode
