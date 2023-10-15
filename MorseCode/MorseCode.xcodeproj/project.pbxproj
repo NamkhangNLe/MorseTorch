@@ -14,6 +14,10 @@
 		B5216D062ADA26DE00BCAD0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5216D052ADA26DE00BCAD0D /* Assets.xcassets */; };
 		B5216D092ADA26DE00BCAD0D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5216D082ADA26DE00BCAD0D /* Preview Assets.xcassets */; };
 		B5216D102ADA2A5900BCAD0D /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5216D0F2ADA2A5900BCAD0D /* Home.swift */; };
+		B58CCBB92ADB21DF00F13F62 /* IMG_7605.mov in Resources */ = {isa = PBXBuildFile; fileRef = B58CCBB82ADB21DF00F13F62 /* IMG_7605.mov */; };
+		B58CCBBB2ADB2CA300F13F62 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58CCBBA2ADB2CA300F13F62 /* VideoView.swift */; };
+		B58CCBBD2ADB42E600F13F62 /* unknown.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B58CCBBC2ADB42E600F13F62 /* unknown.jpeg */; };
+		B58CCBBF2ADB5B8500F13F62 /* uk2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B58CCBBE2ADB5B8500F13F62 /* uk2.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +29,10 @@
 		B5216D052ADA26DE00BCAD0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5216D082ADA26DE00BCAD0D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B5216D0F2ADA2A5900BCAD0D /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		B58CCBB82ADB21DF00F13F62 /* IMG_7605.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = IMG_7605.mov; sourceTree = "<group>"; };
+		B58CCBBA2ADB2CA300F13F62 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		B58CCBBC2ADB42E600F13F62 /* unknown.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = unknown.jpeg; sourceTree = "<group>"; };
+		B58CCBBE2ADB5B8500F13F62 /* uk2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = uk2.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,12 +66,16 @@
 			isa = PBXGroup;
 			children = (
 				B5216D012ADA26DC00BCAD0D /* MorseCodeApp.swift */,
+				B58CCBB82ADB21DF00F13F62 /* IMG_7605.mov */,
 				91FD383A2ADB0B2E00F411CE /* VideoMod.swift */,
+				B58CCBBA2ADB2CA300F13F62 /* VideoView.swift */,
 				B5216D032ADA26DC00BCAD0D /* ContentView.swift */,
 				B5216D052ADA26DE00BCAD0D /* Assets.xcassets */,
 				B5216D072ADA26DE00BCAD0D /* Preview Content */,
 				B5216D0F2ADA2A5900BCAD0D /* Home.swift */,
 				91716B922ADA4154004223CA /* ImagePicker.swift */,
+				B58CCBBC2ADB42E600F13F62 /* unknown.jpeg */,
+				B58CCBBE2ADB5B8500F13F62 /* uk2.jpeg */,
 			);
 			path = MorseCode;
 			sourceTree = "<group>";
@@ -134,7 +146,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B58CCBBF2ADB5B8500F13F62 /* uk2.jpeg in Resources */,
 				B5216D092ADA26DE00BCAD0D /* Preview Assets.xcassets in Resources */,
+				B58CCBB92ADB21DF00F13F62 /* IMG_7605.mov in Resources */,
+				B58CCBBD2ADB42E600F13F62 /* unknown.jpeg in Resources */,
 				B5216D062ADA26DE00BCAD0D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B58CCBBB2ADB2CA300F13F62 /* VideoView.swift in Sources */,
 				91FD383B2ADB0B2E00F411CE /* VideoMod.swift in Sources */,
 				B5216D042ADA26DC00BCAD0D /* ContentView.swift in Sources */,
 				91716B932ADA4154004223CA /* ImagePicker.swift in Sources */,
@@ -284,7 +300,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MorseCode/Preview Content\"";
-				DEVELOPMENT_TEAM = RVLD4LVG6G;
+				DEVELOPMENT_TEAM = YN82V53CTG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow Camera Access";
@@ -299,7 +315,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = mko.MorseCode1111;
+				PRODUCT_BUNDLE_IDENTIFIER = mko.MorseCode111;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -315,7 +331,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MorseCode/Preview Content\"";
-				DEVELOPMENT_TEAM = RVLD4LVG6G;
+				DEVELOPMENT_TEAM = YN82V53CTG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow Camera Access";
@@ -330,7 +346,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = mko.MorseCode1111;
+				PRODUCT_BUNDLE_IDENTIFIER = mko.MorseCode111;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
