@@ -8,13 +8,6 @@
 import Foundation
 import Vision
 
-func stringToArr(strArr: String) -> [Int] {
-       let results = strArr
-                     .trimmingCharacters(in: CharacterSet(charactersIn: "[]"))
-                     .components(separatedBy:", ")
-                     .map { return Int($0.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines))!}
-       return results
-   }
 //output from Max plugs into here, imagine panes of 2D arrays
 
 //
